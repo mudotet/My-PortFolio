@@ -63,26 +63,33 @@ export const Navbar = () => {
         </button>
         <div
           className={cn(
-            // Fix typos in class names below
-            "fixed inset-0 bg-background/95 backdrop-blur-md z-49 flex flex-col items-center justify-center",
-            "transition-all duration-300 md:hidden",
+            "fixed inset-0 z-50 flex items-center justify-center bg-background/95 backdrop-blur-md transition-all duration-300 md:hidden",
             isMenuOpen
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"
           )}
         >
-          <div className="flex flex-col space-x-8 text-xl">
+          {/* Close Button */}
+          <button
+            onClick={() => setIsMenuOpen(false)}
+            className="absolute top-6 right-6 p-3 rounded-full bg-background/80 hover:bg-background/60 shadow-lg transition"
+            aria-label="Close Menu"
+          >
+            <X size={28} className="text-primary" />
+          </button>
+          {/* Menu Items */}
+          <nav className=" rounded-2xl shadow-xl px-10 py-10 flex flex-col items-center gap-6 min-w-[70vw]">
             {navItems.map((item, key) => (
               <a
                 href={item.href}
                 key={key}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                className="text-lg font-semibold text-foreground/90 hover:text-primary transition-colors duration-200 tracking-wide"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
               </a>
             ))}
-          </div>
+          </nav>
         </div>
       </div>
     </nav>
