@@ -1,12 +1,32 @@
-# React + Vite
+# 🌐 Personal Portfolio - Tú Phan
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal software engineering portfolio!  
+This project showcases my skills, experience, and side projects in a clean and responsive layout.
 
-Currently, two official plugins are available:
+🔗 **Live Site:** [tus-portfolio.vercel.app](https://tus-portfolio.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 About Me
 
-## Expanding the ESLint configuration
+I'm Tú Phan, a Software Engineer with a passion for building modern, efficient, and user-friendly applications. I specialize in [insert your focus, e.g., full-stack development, Java backend, or frontend engineering], and I enjoy solving real-world problems through code.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Features
+
+- Responsive design for all devices
+- Animated and interactive UI
+- Project showcase with live links and GitHub repos
+- Contact form integration
+- About me and skills sections
+
+## 🛠️ Tech Stack
+
+- **Frontend:** [React](https://reactjs.org/), [Tailwind CSS](https://tailwindcss.com/)
+- **Hosting:** [Vercel](https://vercel.com/)
+
+## 📬 Contact
+
+Feel free to reach out via the contact form on the website or connect with me on [LinkedIn](https://www.linkedin.com/) (update with your link).
+
+---
+
+⭐ If you like this portfolio, feel free to fork it, star it, or use it as a reference!
+
