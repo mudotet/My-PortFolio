@@ -11,22 +11,55 @@ import {
 import { cn } from "../lib/utills";
 import { useToast } from "./hooks/use-toase.js";
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export const ContactSection = () => {
   const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const handleSubmit = (e) => {
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
+
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+      );
       toast({
         title: "Message Sent!",
         description: "Thank you for reaching out! I'll get back to you soon.",
         duration: 3000,
       });
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error(error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+        duration: 3000,
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
+
   return (
     <section id="contact" className="py-24 px-4 bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
@@ -103,12 +136,9 @@ export const ContactSection = () => {
               </div>
             </div>
           </div>
-          <div
-            className="bg-card p-8 rounded-lg shadow-xs"
-            onSubmit={handleSubmit}
-          >
+          <div className="bg-card p-8 rounded-lg shadow-xs">
             <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
-            <form action="" className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="name"
@@ -120,7 +150,9 @@ export const ContactSection = () => {
                   type="text"
                   id="name"
                   name="name"
-                  className="w-full px-4 py-3 rounded-md bg-background border border-input focus:outline-hidden focus:ring-2 focus:ring-primary transition-colors"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-md bg-background border border-input focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
                   placeholder="Phan Thanh Tu..."
                   required
                 />
@@ -136,7 +168,9 @@ export const ContactSection = () => {
                   type="email"
                   id="email"
                   name="email"
-                  className="w-full px-4 py-3 rounded-md bg-background border border-input focus:outline-hidden focus:ring-2 focus:ring-primary transition-colors"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-md bg-background border border-input focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
                   placeholder="tus@gmail.com"
                   required
                 />
@@ -149,10 +183,11 @@ export const ContactSection = () => {
                   Your Message
                 </label>
                 <textarea
-                  type="text"
                   id="message"
                   name="message"
-                  className="w-full px-4 py-3 rounded-md bg-background border border-input focus:outline-hidden focus:ring-2 focus:ring-primary transition-colors resize-none"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-md bg-background border border-input focus:outline-none focus:ring-2 focus:ring-primary transition-colors resize-none"
                   placeholder="Hello, I'd like to talk about..."
                   required
                 />
