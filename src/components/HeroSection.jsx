@@ -51,7 +51,7 @@ export const HeroSection = () => {
               </span>
               <span className="block opacity-0 animate-fade-in-delay-2">
                 <span className="kinetic-headline text-gradient">
-                  Backend systems. AI products.
+                  Backend Engineer
                 </span>
               </span>
             </h1>
