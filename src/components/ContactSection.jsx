@@ -1,12 +1,10 @@
 import {
-  Instagram,
+  Github,
   Linkedin,
   Mail,
   MapPin,
   Phone,
   Send,
-  Twitch,
-  Twitter,
 } from "lucide-react";
 import { cn } from "../lib/utills";
 import { useToast } from "./hooks/use-toase.js";
@@ -61,29 +59,32 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-4 bg-secondary/30">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          Get In <span className="text-primary">Touch</span>
-        </h2>
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          I'm always open to discussing new projects, creative ideas, or
-          opportunities to be part of your vision. Whether you have a question
-          or just want to say hi, feel free to reach out!
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="space-y-8">
-            <h3 className="text-2xl font-semibold mb-6">
-              {" "}
-              Contact Information
-            </h3>
+    <section id="contact" className="relative z-10 bg-secondary/50 px-4 py-24">
+      <div className="section-shell">
+        <div data-reveal className="mx-auto max-w-3xl text-center">
+          <p className="eyebrow mx-auto w-fit">
+            <Mail className="h-3.5 w-3.5 text-primary" />
+            Contact
+          </p>
+          <h2 className="mt-4 text-3xl font-bold md:text-4xl">
+            Let&apos;s connect.
+          </h2>
+          <p className="mt-5 text-muted-foreground">
+            I am always open to thoughtful conversations about software,
+            product ideas, and opportunities to create useful technology.
+          </p>
+        </div>
+
+        <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2">
+          <div data-reveal className="surface-panel space-y-8 p-8 text-left">
+            <h3 className="text-2xl font-bold">Contact information</h3>
             <div className="space-y-6 justify-center">
               <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bf-primary/10">
+                <div className="rounded-md bg-primary/10 p-3">
                   <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium"> Email</h4>
+                  <h4 className="font-medium">Email</h4>
                   <a
                     href="mailto:mudotet@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
@@ -93,11 +94,11 @@ export const ContactSection = () => {
                 </div>
               </div>
               <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bf-primary/10">
+                <div className="rounded-md bg-primary/10 p-3">
                   <Phone className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium"> Phone</h4>
+                  <h4 className="font-medium">Phone</h4>
                   <a
                     href="tel:+840865812730"
                     className="text-muted-foreground hover:text-primary transition-colors"
@@ -107,37 +108,41 @@ export const ContactSection = () => {
                 </div>
               </div>
               <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bf-primary/10">
+                <div className="rounded-md bg-primary/10 p-3">
                   <MapPin className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium"> Location</h4>
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
-                    Ha Noi, Viet Nam
-                  </a>
+                  <h4 className="font-medium">Location</h4>
+                  <p className="text-muted-foreground">Ha Noi, Viet Nam</p>
                 </div>
               </div>
             </div>
             <div className="pt-8">
-              <h4 className="font-medium mb-4"> Connect With Me</h4>
-              <div className="flex space-x-4 justify-center">
-                <a href="#" target="_blank">
+              <h4 className="font-medium mb-4">Connect with me</h4>
+              <div className="flex gap-3">
+                <a
+                  href="https://github.com/mudotet"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-md border border-border p-3 text-muted-foreground transition hover:border-primary hover:text-primary"
+                  aria-label="GitHub profile"
+                >
+                  <Github />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/t%C3%BA-phan-203970327/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-md border border-border p-3 text-muted-foreground transition hover:border-primary hover:text-primary"
+                  aria-label="LinkedIn profile"
+                >
                   <Linkedin />
-                </a>
-                <a href="#" target="_blank">
-                  <Twitter />
-                </a>
-                <a href="#" target="_blank">
-                  <Instagram />
-                </a>
-                <a href="#" target="_blank">
-                  <Twitch />
                 </a>
               </div>
             </div>
           </div>
-          <div className="bg-card p-8 rounded-lg shadow-xs">
-            <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
+          <div data-reveal style={{ "--reveal-delay": "100ms" }} className="surface-panel p-8 text-left">
+            <h3 className="text-2xl font-bold mb-6">Send a message</h3>
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
@@ -153,7 +158,7 @@ export const ContactSection = () => {
                   value={formData.name}
                   onChange={handleChange}
                   className="w-full px-4 py-3 rounded-md bg-background border border-input focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
-                  placeholder="Phan Thanh Tu..."
+                  placeholder="Your name"
                   required
                 />
               </div>
@@ -171,7 +176,7 @@ export const ContactSection = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full px-4 py-3 rounded-md bg-background border border-input focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
-                  placeholder="tus@gmail.com"
+                  placeholder="you@company.com"
                   required
                 />
               </div>
@@ -187,8 +192,8 @@ export const ContactSection = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-md bg-background border border-input focus:outline-none focus:ring-2 focus:ring-primary transition-colors resize-none"
-                  placeholder="Hello, I'd like to talk about..."
+                  className="min-h-36 w-full resize-none rounded-md border border-input bg-background px-4 py-3 transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+                  placeholder="Hello Tu, I would like to talk about..."
                   required
                 />
               </div>

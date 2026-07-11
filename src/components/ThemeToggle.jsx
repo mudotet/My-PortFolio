@@ -33,8 +33,8 @@ export const ThemeToggle = () => {
     <button
       onClick={toggleTheme}
       className={cn(
-        "fixed max-sm:hidden top-5 right-5 z-50 p-2 rounded",
-        "focus:outline-none"
+        "fixed bottom-5 right-5 z-50 rounded-md border border-border bg-card p-2 shadow-sm transition hover:border-primary",
+        "focus:outline-none focus:ring-2 focus:ring-primary"
       )}
       aria-label="Toggle theme"
     >
