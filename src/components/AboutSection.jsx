@@ -16,7 +16,7 @@ export const AboutSection = () => {
               <BriefcaseBusiness className="h-3.5 w-3.5 text-primary" />
               About
             </p>
-            <h2 className="mt-4 text-3xl font-bold md:text-4xl">
+            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] md:text-5xl">
               Building with purpose.
             </h2>
             <p className="mt-6 text-lg leading-8 text-foreground/80">
@@ -92,7 +92,7 @@ export const AboutSection = () => {
                 <Award className="h-3.5 w-3.5 text-primary" />
                 Credentials
               </p>
-              <h2 className="mt-4 text-3xl font-bold md:text-4xl">
+              <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] md:text-5xl">
                 Recognized credentials.
               </h2>
             </div>
@@ -102,7 +102,7 @@ export const AboutSection = () => {
             </p>
           </div>
 
-          <div className="mt-8 grid gap-5 md:grid-cols-2">
+          <div className="mt-8 grid gap-5 md:grid-cols-[0.86fr_1.14fr]">
             <a
               data-reveal
               href="https://drive.google.com/file/d/1j4uye_QR5KcdsJd9S9wPH7O_LYotB9ni/view?usp=sharing"

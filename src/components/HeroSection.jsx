@@ -27,17 +27,20 @@ export const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative z-10 flex min-h-[92vh] items-center px-4 pb-16 pt-28"
+      className="relative z-10 flex min-h-dvh items-center px-4 pb-20 pt-32"
     >
       <div className="section-shell">
-        <div className="grid gap-10 lg:grid-cols-[1.12fr_0.88fr] lg:items-center">
-          <div className="max-w-3xl text-left">
+        <div className="grid gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+          <div className="min-w-0 max-w-3xl text-left">
             <div className="eyebrow opacity-0 animate-fade-in">
               <MapPin className="h-3.5 w-3.5 text-primary" />
-              Software Engineer · Ha Noi, Viet Nam
+              Software Engineer · Ha Noi
             </div>
-            <h1 className="mt-6 text-4xl font-bold leading-tight md:text-6xl">
-              <span className="hero-name block" aria-label={displayName}>
+            <h1 className="mt-8">
+              <span
+                className="hero-name block text-lg font-semibold tracking-[0.12em] text-foreground/75 md:text-xl"
+                aria-label={displayName}
+              >
                 {Array.from(displayName).map((character, index) => (
                   <span
                     key={`${character}-${index}`}
@@ -49,13 +52,15 @@ export const HeroSection = () => {
                   </span>
                 ))}
               </span>
-              <span className="block opacity-0 animate-fade-in-delay-2">
-                <span className="kinetic-headline text-gradient">
-                  Backend Engineer
+              <span className="mt-3 block opacity-0 animate-fade-in-delay-2">
+                <span className="text-gradient block text-[clamp(3.85rem,8vw,7.4rem)] font-semibold leading-[0.82] tracking-[-0.075em]">
+                  Backend
+                  <br />
+                  engineer.
                 </span>
               </span>
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-muted-foreground opacity-0 animate-fade-in-delay-3 md:text-lg">
+            <p className="mt-8 max-w-[62ch] text-base leading-8 text-muted-foreground opacity-0 animate-fade-in-delay-3 md:text-lg">
               I build RESTful services, authentication systems, payment flows,
               and AI-assisted workflows with Java, Spring Boot, NestJS, FastAPI,
               PostgreSQL, Redis, and Docker.
@@ -75,7 +80,7 @@ export const HeroSection = () => {
               </a>
             </div>
 
-            <div className="mt-7 flex flex-wrap gap-3 opacity-0 animate-fade-in-delay-4">
+            <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-border pt-5 opacity-0 animate-fade-in-delay-4">
               {socialLinks.map((link) => {
                 const Icon = link.icon;
                 return (
@@ -84,7 +89,7 @@ export const HeroSection = () => {
                     href={link.href}
                     target={link.href.startsWith("http") ? "_blank" : undefined}
                     rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-                    className="inline-flex items-center gap-2 rounded-md border border-border bg-background/70 px-3 py-2 text-sm text-muted-foreground transition hover:border-primary hover:text-primary"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground transition hover:text-primary"
                   >
                     <Icon className="h-4 w-4" />
                     {link.label}

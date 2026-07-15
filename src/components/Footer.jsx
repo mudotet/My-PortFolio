@@ -5,8 +5,8 @@ export const Footer = () => {
     <footer className="relative z-10 border-t border-border bg-card px-4 py-8">
       <div className="section-shell flex flex-wrap items-center justify-between gap-4">
         <p className="text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} Phan Thanh Tu. Personal portfolio,
-          built with care.
+          &copy; {new Date().getFullYear()} Phan Thanh Tu. Designed and built in
+          Ha Noi.
         </p>
         <a
           href="#hero"

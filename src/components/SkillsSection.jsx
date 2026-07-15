@@ -125,7 +125,7 @@ export const SkillsSection = () => {
               <Server className="h-3.5 w-3.5 text-primary" />
               Skills
             </p>
-            <h2 className="mt-4 text-3xl font-bold md:text-4xl">
+            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] md:text-5xl">
               Technical toolkit.
             </h2>
           </div>

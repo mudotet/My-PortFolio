@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { ThemeToggle } from "../components/ThemeToggle";
 import { MotionEffects } from "../components/MotionEffects";
 import { StarBackground } from "../components/StarBackground";
 import { Navbar } from "../components/Navbar";
@@ -39,19 +38,21 @@ export const Home = () => {
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-background text-foreground">
-        <MotionEffects />
-        <ThemeToggle />
-        <StarBackground />
-        <Navbar />
-        <main>
-          <HeroSection />
-          <AboutSection />
-          <ExperienceSection />
-          <SkillsSection />
-          <ProjectsSection />
-          <ContactSection />
-        </main>
-        <Footer />
+      <a href="#main-content" className="skip-link">
+        Skip to content
+      </a>
+      <MotionEffects />
+      <StarBackground />
+      <Navbar />
+      <main id="main-content">
+        <HeroSection />
+        <AboutSection />
+        <ExperienceSection />
+        <SkillsSection />
+        <ProjectsSection />
+        <ContactSection />
+      </main>
+      <Footer />
     </div>
   );
 };

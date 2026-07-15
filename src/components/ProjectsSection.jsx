@@ -92,21 +92,23 @@ export const ProjectsSection = () => {
   return (
     <section id="projects" className="relative z-10 px-4 py-24">
       <div className="section-shell">
-        <div data-reveal className="mx-auto max-w-3xl text-center">
-          <p className="eyebrow mx-auto w-fit">
-            <Boxes className="h-3.5 w-3.5 text-primary" />
-            Projects
-          </p>
-          <h2 className="mt-4 text-3xl font-bold md:text-4xl">
-            Selected work.
-          </h2>
-          <p className="mt-5 text-muted-foreground">
+        <div data-reveal className="grid gap-6 text-left lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+          <div>
+            <p className="eyebrow">
+              <Boxes className="h-3.5 w-3.5 text-primary" />
+              Projects
+            </p>
+            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] md:text-5xl">
+              Selected work.
+            </h2>
+          </div>
+          <p className="max-w-2xl leading-8 text-muted-foreground">
             A selection of products and systems I have helped shape, with the
             focus on the problem, my contribution, and the outcome.
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-12">
           {projects.map((project, index) => {
             const Icon = project.icon;
             return (
@@ -115,38 +117,42 @@ export const ProjectsSection = () => {
                 data-reveal
                 data-parallax="card"
                 style={{ "--reveal-delay": `${index * 80}ms` }}
-                className="project-motion-shell h-full"
+                className={`project-motion-shell h-full ${
+                  index === 0 || index === 3
+                    ? "lg:col-span-7"
+                    : "lg:col-span-5"
+                }`}
               >
                 <article className="project-card-motion surface-panel group flex h-full flex-col overflow-hidden text-left">
-                <div className="project-visual relative min-h-72 overflow-hidden p-5 pb-20 sm:min-h-56 sm:pb-5">
-                  <div className="flex items-center justify-between gap-3">
-                    <span className="rounded-md border border-border bg-card/80 px-3 py-1 text-xs font-semibold text-muted-foreground">
-                      {project.label}
-                    </span>
-                    <span className="rounded-md bg-foreground px-3 py-1 text-xs font-semibold text-background dark:bg-background dark:text-foreground">
-                      {project.date}
-                    </span>
-                  </div>
-                  <div className="mt-10 grid grid-cols-2 gap-3 sm:flex sm:items-center sm:justify-center">
-                    {project.flow.map((item, index) => (
-                      <div key={item} className="flex items-center gap-3">
-                        <div className="rounded-md border border-border bg-card/90 px-3 py-3 text-center shadow-sm">
-                          <p className="text-xs font-semibold text-muted-foreground">
-                            {item}
-                          </p>
+                  <div className="project-visual relative min-h-72 overflow-hidden p-5 pb-20 sm:min-h-56 sm:pb-5">
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="rounded-md border border-border bg-card/80 px-3 py-1 text-xs font-semibold text-muted-foreground">
+                        {project.label}
+                      </span>
+                      <span className="rounded-md bg-foreground px-3 py-1 text-xs font-semibold text-background dark:bg-background dark:text-foreground">
+                        {project.date}
+                      </span>
+                    </div>
+                    <div className="mt-10 grid grid-cols-2 gap-3 sm:flex sm:items-center sm:justify-center">
+                      {project.flow.map((item, index) => (
+                        <div key={item} className="flex items-center gap-3">
+                          <div className="rounded-md border border-border bg-card/90 px-3 py-3 text-center shadow-sm">
+                            <p className="text-xs font-semibold text-muted-foreground">
+                              {item}
+                            </p>
+                          </div>
+                          {index < project.flow.length - 1 && (
+                            <div className="flow-line hidden h-px w-8 sm:block" />
+                          )}
                         </div>
-                        {index < project.flow.length - 1 && (
-                          <div className="flow-line hidden h-px w-8 sm:block" />
-                        )}
-                      </div>
-                    ))}
+                      ))}
+                    </div>
+                    <div className="absolute bottom-5 left-5 rounded-md bg-primary p-3 text-primary-foreground shadow-lg">
+                      <Icon className="h-6 w-6" />
+                    </div>
                   </div>
-                  <div className="absolute bottom-5 left-5 rounded-md bg-primary p-3 text-primary-foreground shadow-lg">
-                    <Icon className="h-6 w-6" />
-                  </div>
-                </div>
 
-                <div className="flex flex-1 flex-col p-6">
+                  <div className="flex flex-1 flex-col p-6">
                   <div className="mb-4 flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <span
@@ -225,7 +231,7 @@ export const ProjectsSection = () => {
                       </span>
                     )}
                   </div>
-                </div>
+                  </div>
                 </article>
               </div>
             );

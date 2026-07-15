@@ -6,7 +6,6 @@ import {
   Phone,
   Send,
 } from "lucide-react";
-import { cn } from "../lib/utills";
 import { useToast } from "./hooks/use-toase.js";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
@@ -41,16 +40,16 @@ export const ContactSection = () => {
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
       );
       toast({
-        title: "Message Sent!",
-        description: "Thank you for reaching out! I'll get back to you soon.",
+        title: "Message sent",
+        description: "Thanks for reaching out. I'll get back to you soon.",
         duration: 3000,
       });
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       console.error(error);
       toast({
-        title: "Error",
-        description: "Failed to send message. Please try again later.",
+        title: "Message not sent",
+        description: "The connection failed. Please try again later.",
         duration: 3000,
       });
     } finally {
@@ -61,13 +60,13 @@ export const ContactSection = () => {
   return (
     <section id="contact" className="relative z-10 bg-secondary/50 px-4 py-24">
       <div className="section-shell">
-        <div data-reveal className="mx-auto max-w-3xl text-center">
-          <p className="eyebrow mx-auto w-fit">
+        <div data-reveal className="max-w-3xl text-left">
+          <p className="eyebrow">
             <Mail className="h-3.5 w-3.5 text-primary" />
             Contact
           </p>
-          <h2 className="mt-4 text-3xl font-bold md:text-4xl">
-            Let&apos;s connect.
+          <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] md:text-5xl">
+            Let&apos;s build something useful.
           </h2>
           <p className="mt-5 text-muted-foreground">
             I am always open to thoughtful conversations about software,
@@ -75,8 +74,8 @@ export const ContactSection = () => {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2">
-          <div data-reveal className="surface-panel space-y-8 p-8 text-left">
+        <div className="mt-14 grid grid-cols-1 gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+          <div data-reveal className="space-y-8 border-t border-border pt-8 text-left">
             <h3 className="text-2xl font-bold">Contact information</h3>
             <div className="space-y-6 justify-center">
               <div className="flex items-start space-x-4">
@@ -141,7 +140,11 @@ export const ContactSection = () => {
               </div>
             </div>
           </div>
-          <div data-reveal style={{ "--reveal-delay": "100ms" }} className="surface-panel p-8 text-left">
+          <div
+            data-reveal
+            style={{ "--reveal-delay": "100ms" }}
+            className="surface-panel p-6 text-left sm:p-8"
+          >
             <h3 className="text-2xl font-bold mb-6">Send a message</h3>
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
@@ -149,7 +152,7 @@ export const ContactSection = () => {
                   htmlFor="name"
                   className="block text-sm font-medium mb-2"
                 >
-                  Your Name
+                  Your name
                 </label>
                 <input
                   type="text"
@@ -167,7 +170,7 @@ export const ContactSection = () => {
                   htmlFor="email"
                   className="block text-sm font-medium mb-2"
                 >
-                  Your Email
+                  Your email
                 </label>
                 <input
                   type="email"
@@ -185,7 +188,7 @@ export const ContactSection = () => {
                   htmlFor="message"
                   className="block text-sm font-medium mb-2"
                 >
-                  Your Message
+                  Your message
                 </label>
                 <textarea
                   id="message"
@@ -200,11 +203,9 @@ export const ContactSection = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={cn(
-                  "cosmic-button w-full flex items-center justify-center gap-2"
-                )}
+                className="cosmic-button w-full"
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
+                {isSubmitting ? "Sending..." : "Send message"}
                 <Send size={16} />
               </button>
             </form>
