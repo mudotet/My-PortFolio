@@ -63,47 +63,6 @@
       transform: translateY(110vh);
     }
   }
-  @keyframes data-flow-x {
-    from {
-      left: 13%;
-    }
-    to {
-      left: 85%;
-    }
-  }
-  @keyframes data-flow-y {
-    from {
-      top: 13%;
-    }
-    to {
-      top: 85%;
-    }
-  }
-  @keyframes system-scan {
-    0%,
-    12% {
-      opacity: 0;
-      top: 8%;
-    }
-    30%,
-    72% {
-      opacity: 0.4;
-    }
-    88%,
-    100% {
-      opacity: 0;
-      top: 92%;
-    }
-  }
-  @keyframes core-breathe {
-    0%,
-    100% {
-      box-shadow: 0 16px 45px hsl(var(--primary) / 0.16);
-    }
-    50% {
-      box-shadow: 0 20px 60px hsl(var(--primary) / 0.28);
-    }
-  }
   @keyframes character-reveal {
     from {
       opacity: 0;
@@ -281,7 +240,6 @@
     animation: none;
   }
 
-  .hero-system,
   .project-card-motion,
   .project-motion-shell:hover .project-card-motion {
     transform: none !important;
@@ -294,12 +252,6 @@
 
   .ambient-grid,
   .ambient-sweep,
-  .data-packet,
-  .hero-system::after,
-  .system-core {
-    animation: none !important;
-  }
-
   .reveal-ready [data-reveal] {
     opacity: 1;
     transform: none;
@@ -425,203 +377,6 @@
     box-shadow:
       inset 0 1px hsl(var(--background) / 0.65),
       0 18px 60px hsl(var(--foreground) / 0.06);
-  }
-
-  .hero-system {
-    position: relative;
-    min-height: 26rem;
-    isolation: isolate;
-    --tilt-x: 0deg;
-    --tilt-y: 0deg;
-    transform: perspective(1100px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
-    transform-style: preserve-3d;
-    transition: transform 180ms ease-out;
-    will-change: transform;
-  }
-
-  .hero-system::before {
-    content: "";
-    position: absolute;
-    inset: 4%;
-    z-index: -3;
-    border: 1px solid hsl(var(--border));
-    border-radius: 1.75rem 0.5rem 1.75rem 0.5rem;
-    background:
-      radial-gradient(circle at 72% 26%, hsl(var(--primary) / 0.12), transparent 30%),
-      hsl(var(--card) / 0.48);
-    box-shadow: inset 0 1px hsl(var(--background) / 0.75);
-  }
-
-  .hero-system::after {
-    content: "";
-    position: absolute;
-    left: 8%;
-    right: 8%;
-    top: 8%;
-    z-index: -1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.5), transparent);
-    animation: system-scan 8s ease-in-out infinite;
-  }
-
-  .hero-system-grid {
-    position: absolute;
-    inset: 8%;
-    z-index: -2;
-    background-image:
-      linear-gradient(to right, hsl(var(--border) / 0.7) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--border) / 0.7) 1px, transparent 1px);
-    background-size: 2rem 2rem;
-    mask-image: radial-gradient(circle, black 22%, transparent 72%);
-    transform: translateZ(-24px);
-  }
-
-  .system-axis {
-    position: absolute;
-    z-index: -1;
-    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.58), transparent);
-  }
-
-  .system-axis-horizontal {
-    left: 13%;
-    right: 13%;
-    top: 50%;
-    height: 1px;
-  }
-
-  .system-axis-vertical {
-    top: 13%;
-    bottom: 13%;
-    left: 50%;
-    width: 1px;
-    background: linear-gradient(180deg, transparent, hsl(var(--accent) / 0.58), transparent);
-  }
-
-  .data-packet {
-    position: absolute;
-    z-index: 1;
-    width: 0.4rem;
-    height: 0.4rem;
-    border-radius: 1px;
-    background: hsl(var(--primary));
-    box-shadow: 0 0 16px hsl(var(--primary) / 0.8);
-  }
-
-  .packet-horizontal-one,
-  .packet-horizontal-two {
-    top: calc(50% - 0.2rem);
-    animation: data-flow-x 4.6s linear infinite;
-  }
-
-  .packet-horizontal-two {
-    animation-delay: -2.3s;
-  }
-
-  .packet-vertical-one,
-  .packet-vertical-two {
-    left: calc(50% - 0.2rem);
-    background: hsl(var(--accent));
-    box-shadow: 0 0 16px hsl(var(--accent) / 0.8);
-    animation: data-flow-y 4.6s linear infinite;
-  }
-
-  .packet-vertical-two {
-    animation-delay: -2.3s;
-  }
-
-  .system-node,
-  .system-core {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: clamp(6.4rem, 24vw, 8rem);
-    min-height: 4.8rem;
-    border: 1px solid hsl(var(--border));
-    border-radius: 0.65rem 0.2rem 0.65rem 0.2rem;
-    background: hsl(var(--card) / 0.94);
-    box-shadow: 0 10px 30px hsl(var(--foreground) / 0.06);
-    backdrop-filter: blur(10px);
-  }
-
-  .system-node {
-    gap: 0.15rem;
-    color: hsl(var(--muted-foreground));
-  }
-
-  .system-node strong,
-  .system-core strong {
-    margin-top: 0.35rem;
-    color: hsl(var(--foreground));
-    font-size: 0.7rem;
-  }
-
-  .system-node small,
-  .system-core small {
-    color: hsl(var(--muted-foreground));
-    font-size: 0.62rem;
-  }
-
-  .system-node-icon {
-    color: hsl(var(--primary));
-  }
-
-  .system-node-auth {
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%) translateZ(20px);
-  }
-
-  .system-node-data {
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%) translateZ(20px);
-  }
-
-  .system-node-ai {
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%) translateZ(20px);
-  }
-
-  .system-node-deploy {
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%) translateZ(20px);
-  }
-
-  .system-core {
-    top: 50%;
-    left: 50%;
-    z-index: 2;
-    width: clamp(7.4rem, 27vw, 9rem);
-    min-height: 6.6rem;
-    transform: translate(-50%, -50%) translateZ(52px);
-    border-color: hsl(var(--primary) / 0.55);
-    color: hsl(var(--primary));
-    animation: core-breathe 3.4s ease-in-out infinite;
-  }
-
-  .system-status {
-    position: absolute;
-    right: 0;
-    bottom: 0.15rem;
-    display: flex;
-    align-items: center;
-    gap: 0.45rem;
-    color: hsl(var(--muted-foreground));
-    font-size: 0.62rem;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
-
-  .system-status span {
-    width: 0.42rem;
-    height: 0.42rem;
-    border-radius: 1px;
-    background: hsl(var(--accent));
-    box-shadow: 0 0 12px hsl(var(--accent) / 0.75);
   }
 
   .credential-card {
