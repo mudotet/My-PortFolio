@@ -2,11 +2,59 @@ import {
   Award,
   BookOpen,
   BriefcaseBusiness,
-  ExternalLink,
+  Eye,
   GraduationCap,
 } from "lucide-react";
+import cs50Certificate from "../assets/certificate/CS50x.pdf";
+import geminiCertificate from "../assets/certificate/Gemini_Certificate_Student.pdf";
+import ieltsCertificate from "../assets/certificate/IELTS-CERTIFICATE.pdf";
+import goCertificate from "../assets/certificate/golang_basic certificate.pdf";
+import sqlCertificate from "../assets/certificate/java_basic certificate.pdf";
 
-export const AboutSection = () => {
+const credentials = [
+  {
+    issuer: "IDP Education",
+    title: "IELTS Academic",
+    highlight: "7.0",
+    subtitle: "Overall Band Score · CEFR C1",
+    color: "#d71920",
+    file: ieltsCertificate,
+  },
+  {
+    issuer: "Harvard University",
+    title: "CS50x",
+    highlight: "CS50",
+    subtitle: "Introduction to Computer Science",
+    color: "#a51c30",
+    file: cs50Certificate,
+  },
+  {
+    issuer: "Google for Education",
+    title: "Gemini Certified Student",
+    highlight: "Gemini",
+    subtitle: "Google AI · University",
+    color: "#4285f4",
+    file: geminiCertificate,
+  },
+  {
+    issuer: "HackerRank",
+    title: "SQL (Advanced)",
+    highlight: "SQL",
+    subtitle: "Skill Certification",
+    color: "#00a968",
+    file: sqlCertificate,
+  },
+  {
+    issuer: "HackerRank",
+    title: "Go (Basic)",
+    highlight: "Go",
+    subtitle: "Skill Certification",
+    color: "#00add8",
+    file: goCertificate,
+  },
+];
+
+export const AboutSection = ({ onOpenResume, onPreview }) => {
   return (
     <section id="about" className="relative z-10 px-4 py-24">
       <div className="section-shell">
@@ -30,13 +78,15 @@ export const AboutSection = () => {
               has also shaped how I communicate technical ideas and collaborate
               with people at different levels of experience.
             </p>
-            <a
-              href="/CV_PhanThanhTu_Sofware_Engineer_Intern.pdf"
+            <button
+              type="button"
+              aria-haspopup="dialog"
+              onClick={onOpenResume}
               className="mt-8 inline-flex items-center gap-2 rounded-md border border-primary px-4 py-3 text-sm font-semibold text-primary transition hover:bg-primary/10"
             >
               <BookOpen className="h-4 w-4" />
               View CV
-            </a>
+            </button>
           </div>
 
           <div data-reveal className="surface-panel p-6 text-left">
@@ -97,75 +147,54 @@ export const AboutSection = () => {
               </h2>
             </div>
             <p className="max-w-xl leading-7 text-muted-foreground">
-              External proof of English proficiency and computer science
-              foundations.
+              Verified achievements across English, computer science, AI, and
+              backend engineering.
             </p>
           </div>
 
-          <div className="mt-8 grid gap-5 md:grid-cols-[0.86fr_1.14fr]">
-            <a
-              data-reveal
-              href="https://drive.google.com/file/d/1j4uye_QR5KcdsJd9S9wPH7O_LYotB9ni/view?usp=sharing"
-              target="_blank"
-              rel="noreferrer"
-              className="credential-card credential-ielts group"
-              aria-label="View IELTS 7.0 certificate from IDP Education"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-sm font-bold text-[#d71920] dark:text-[#ff858a]">
-                    IDP EDUCATION
-                  </p>
-                  <p className="mt-1 text-3xl font-black text-foreground">IELTS</p>
+          <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {credentials.map((credential, index) => (
+              <button
+                key={credential.title}
+                type="button"
+                data-reveal
+                style={{
+                  "--credential-color": credential.color,
+                  "--reveal-delay": `${index * 70}ms`,
+                }}
+                className="credential-card group"
+                aria-haspopup="dialog"
+                aria-label={`View ${credential.title} certificate from ${credential.issuer}`}
+                onClick={() => onPreview(credential)}
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="credential-issuer">{credential.issuer}</p>
+                    <p className="mt-1 text-3xl font-black text-foreground">
+                      {credential.highlight}
+                    </p>
+                  </div>
+                  <Eye className="h-5 w-5 text-muted-foreground transition group-hover:text-primary" />
                 </div>
-                <ExternalLink className="h-5 w-5 text-muted-foreground transition group-hover:text-primary" />
-              </div>
-              <div className="mt-10 flex items-end justify-between gap-4 border-t border-border pt-5">
-                <div>
-                  <p className="text-5xl font-black text-foreground">7.0</p>
-                  <p className="mt-1 text-sm font-semibold text-muted-foreground">
-                    Overall Band Score
-                  </p>
+                <div className="mt-10 flex items-end justify-between gap-4 border-t border-border pt-5">
+                  <div>
+                    <p className="text-xl font-black text-foreground">
+                      {credential.title}
+                    </p>
+                    <p className="mt-2 text-sm font-semibold text-muted-foreground">
+                      {credential.subtitle}
+                    </p>
+                  </div>
+                  <span className="shrink-0 text-sm font-semibold text-primary">
+                    Preview
+                  </span>
                 </div>
-                <span className="text-sm font-semibold text-primary">
-                  View credential
-                </span>
-              </div>
-            </a>
-
-            <a
-              data-reveal
-              style={{ "--reveal-delay": "100ms" }}
-              href="https://certificates.cs50.io/c24e4e3b-87d1-49b7-afb1-79a9426b6054.pdf?size=letter"
-              target="_blank"
-              rel="noreferrer"
-              className="credential-card credential-cs50 group"
-              aria-label="View CS50x certificate from Harvard University"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-sm font-bold text-[#a51c30] dark:text-[#f08b9a]">
-                    HARVARD UNIVERSITY
-                  </p>
-                  <p className="mt-1 text-3xl font-black text-foreground">CS50</p>
-                </div>
-                <ExternalLink className="h-5 w-5 text-muted-foreground transition group-hover:text-primary" />
-              </div>
-              <div className="mt-10 flex items-end justify-between gap-4 border-t border-border pt-5">
-                <div>
-                  <p className="text-3xl font-black text-foreground">CS50x</p>
-                  <p className="mt-2 text-sm font-semibold text-muted-foreground">
-                    Introduction to Computer Science
-                  </p>
-                </div>
-                <span className="shrink-0 text-sm font-semibold text-primary">
-                  View credential
-                </span>
-              </div>
-            </a>
+              </button>
+            ))}
           </div>
         </div>
       </div>
+
     </section>
   );
 };

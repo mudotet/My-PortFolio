@@ -1,11 +1,49 @@
 import {
   BriefcaseBusiness,
   CalendarDays,
+  ExternalLink,
+  Github,
+  Landmark,
   Presentation,
   Trophy,
 } from "lucide-react";
 
 const experiences = [
+  {
+    period: "July 2026",
+    organization: "AI Innovation Challenge · LonelyStone",
+    role: "Team Leader · Full-stack Developer",
+    signal: "Smart Government",
+    icon: Landmark,
+    summary:
+      "Led a 3-person team to build CivicPath AI, a smart-government platform that helps citizens prepare birth-registration applications with guided AI support.",
+    contributions: [
+      "Built Vietnamese text and voice intake with structured fact extraction, multi-case classification, and dynamic document checklists.",
+      "Combined deterministic validation with AI explanations, legal references, form autofill, and downloadable PDF previews.",
+      "Shipped a protected officer dashboard and deployed Next.js on Vercel, FastAPI on Render, and PostgreSQL on Neon.",
+    ],
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "FastAPI",
+      "OpenAI API",
+      "Neon Postgres",
+      "SQLAlchemy",
+      "ReportLab",
+    ],
+    links: [
+      {
+        label: "Live demo",
+        href: "https://ai-guided-public-service-procedures.vercel.app/",
+        icon: ExternalLink,
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/mudotet/AI-guided-public-service-procedures-Lonely-Stone-",
+        icon: Github,
+      },
+    ],
+  },
   {
     period: "June 2026",
     organization: "Codex Community Hackathon",
@@ -121,6 +159,22 @@ export const ExperienceSection = () => {
                   <p className="mt-3 max-w-3xl leading-7 text-muted-foreground">
                     {experience.summary}
                   </p>
+                  {experience.links && (
+                    <div className="mt-4 flex flex-wrap gap-3">
+                      {experience.links.map((link) => (
+                        <a
+                          key={link.label}
+                          href={link.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition hover:opacity-70"
+                        >
+                          <link.icon className="h-4 w-4" aria-hidden="true" />
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
                   <ul className="mt-5 grid gap-3 md:grid-cols-3">
                     {experience.contributions.map((contribution) => (
                       <li

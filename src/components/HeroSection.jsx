@@ -27,7 +27,7 @@ const proofPoints = [
 
 const displayName = "Phan Thanh Tu";
 
-export const HeroSection = () => {
+export const HeroSection = ({ onOpenResume }) => {
   return (
     <section
       id="hero"
@@ -76,15 +76,15 @@ export const HeroSection = () => {
                 View case studies
                 <ArrowRight className="h-4 w-4" />
               </a>
-              <a
-                href="/CV_PhanThanhTu_Sofware_Engineer_Intern.pdf"
-                target="_blank"
-                rel="noreferrer"
+              <button
+                type="button"
+                aria-haspopup="dialog"
+                onClick={onOpenResume}
                 className="inline-flex items-center justify-center gap-2 rounded-md border border-border bg-card px-5 py-3 text-sm font-semibold transition duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary"
               >
                 View resume
                 <FileText className="h-4 w-4" />
-              </a>
+              </button>
             </div>
 
             <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-border pt-5 opacity-0 animate-fade-in-delay-4">

@@ -1,15 +1,29 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { MotionEffects } from "../components/MotionEffects";
 import { StarBackground } from "../components/StarBackground";
 import { Navbar } from "../components/Navbar";
 import { HeroSection } from "../components/HeroSection";
 import { AboutSection } from "../components/AboutSection";
+import { PdfDialog } from "../components/PdfDialog";
 import { ExperienceSection } from "../components/ExperienceSection";
 import { SkillsSection } from "../components/SkillsSection";
 import { ProjectsSection } from "../components/ProjectsSection";
 import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
+import resumeFile from "../assets/resume/PHAN_THANH_TU_CV_SOFTWARE_ENGINEER_GENERAL.pdf";
+import resumePreviewImage from "../assets/resume/PHAN_THANH_TU_CV_SOFTWARE_ENGINEER_GENERAL-preview.png";
+
+const resumePreview = {
+  issuer: "Resume",
+  title: "Phan Thanh Tu · Software Engineer",
+  file: resumeFile,
+  image: resumePreviewImage,
+  orientation: "portrait",
+};
+
 export const Home = () => {
+  const [pdfPreview, setPdfPreview] = useState(null);
+
   useEffect(() => {
     const root = document.documentElement;
     const elements = document.querySelectorAll("[data-reveal]");
@@ -36,6 +50,8 @@ export const Home = () => {
     };
   }, []);
 
+  const openResume = () => setPdfPreview(resumePreview);
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-background text-foreground">
       <a href="#main-content" className="skip-link">
@@ -45,13 +61,14 @@ export const Home = () => {
       <StarBackground />
       <Navbar />
       <main id="main-content">
-        <HeroSection />
-        <AboutSection />
+        <HeroSection onOpenResume={openResume} />
+        <AboutSection onOpenResume={openResume} onPreview={setPdfPreview} />
         <ExperienceSection />
         <SkillsSection />
         <ProjectsSection />
         <ContactSection />
       </main>
+      <PdfDialog preview={pdfPreview} onClose={() => setPdfPreview(null)} />
       <Footer />
     </div>
   );
