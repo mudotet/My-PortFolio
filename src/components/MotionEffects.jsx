@@ -50,47 +50,10 @@ export const MotionEffects = () => {
       if (section) sectionObserver.observe(section);
     });
 
-    const reduceMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    const finePointer = window.matchMedia("(pointer: fine)").matches;
-    const parallaxElements = [...document.querySelectorAll("[data-parallax]")];
-    const cleanupParallax = [];
-
-    if (!reduceMotion && finePointer) {
-      parallaxElements.forEach((element) => {
-        const maxTilt = element.dataset.parallax === "hero" ? 4 : 2.5;
-
-        const handlePointerMove = (event) => {
-          const rect = element.getBoundingClientRect();
-          const x = (event.clientX - rect.left) / rect.width;
-          const y = (event.clientY - rect.top) / rect.height;
-
-          element.style.setProperty("--tilt-x", `${(0.5 - y) * maxTilt * 2}deg`);
-          element.style.setProperty("--tilt-y", `${(x - 0.5) * maxTilt * 2}deg`);
-          element.style.setProperty("--shine-x", `${x * 240 - 120}%`);
-        };
-
-        const resetPointer = () => {
-          element.style.setProperty("--tilt-x", "0deg");
-          element.style.setProperty("--tilt-y", "0deg");
-          element.style.setProperty("--shine-x", "-140%");
-        };
-
-        element.addEventListener("pointermove", handlePointerMove);
-        element.addEventListener("pointerleave", resetPointer);
-        cleanupParallax.push(() => {
-          element.removeEventListener("pointermove", handlePointerMove);
-          element.removeEventListener("pointerleave", resetPointer);
-        });
-      });
-    }
-
     return () => {
       if (frameId) window.cancelAnimationFrame(frameId);
       window.removeEventListener("scroll", handleScroll);
       sectionObserver.disconnect();
-      cleanupParallax.forEach((cleanup) => cleanup());
     };
   }, []);
 

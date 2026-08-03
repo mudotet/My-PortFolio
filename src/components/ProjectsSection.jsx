@@ -115,7 +115,6 @@ export const ProjectsSection = () => {
               <div
                 key={project.id}
                 data-reveal
-                data-parallax="card"
                 style={{ "--reveal-delay": `${index * 80}ms` }}
                 className={`project-motion-shell h-full ${
                   index === 0 || index === 3

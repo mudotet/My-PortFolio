@@ -21,9 +21,8 @@ export const PdfDialog = ({ preview, onClose }) => {
   return (
     <dialog
       ref={dialogRef}
-      className={`certificate-dialog${
-        preview?.orientation === "portrait" ? " resume-dialog" : ""
-      }`}
+      className="certificate-dialog"
+      style={{ "--preview-ratio": preview?.aspectRatio ?? 1.294 }}
       aria-labelledby="pdf-dialog-title"
       onClose={onClose}
       onClick={(event) => {
@@ -56,13 +55,13 @@ export const PdfDialog = ({ preview, onClose }) => {
           {preview.image ? (
             <img
               src={preview.image}
-              alt={`${preview.title} — one-page resume`}
+              alt={`${preview.title} certificate`}
               className="resume-preview"
             />
           ) : (
             <iframe
               key={preview.file}
-              src={`${preview.file}#view=FitH&toolbar=0&navpanes=0`}
+              src={`${preview.file}#view=Fit&toolbar=0&navpanes=0`}
               title={`${preview.title} preview`}
               className="certificate-frame"
             />

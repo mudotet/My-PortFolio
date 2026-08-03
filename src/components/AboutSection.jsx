@@ -9,7 +9,8 @@ import cs50Certificate from "../assets/certificate/CS50x.pdf";
 import geminiCertificate from "../assets/certificate/Gemini_Certificate_Student.pdf";
 import ieltsCertificate from "../assets/certificate/IELTS-CERTIFICATE.pdf";
 import goCertificate from "../assets/certificate/golang_basic certificate.pdf";
-import sqlCertificate from "../assets/certificate/java_basic certificate.pdf";
+import javaCertificate from "../assets/certificate/java_basic_certificate.png";
+import sqlCertificate from "../assets/certificate/SQL_Advanced certificate.pdf";
 
 const credentials = [
   {
@@ -19,6 +20,7 @@ const credentials = [
     subtitle: "Overall Band Score · CEFR C1",
     color: "#d71920",
     file: ieltsCertificate,
+    aspectRatio: 1.414,
   },
   {
     issuer: "Harvard University",
@@ -27,6 +29,7 @@ const credentials = [
     subtitle: "Introduction to Computer Science",
     color: "#a51c30",
     file: cs50Certificate,
+    aspectRatio: 1.294,
   },
   {
     issuer: "Google for Education",
@@ -35,6 +38,7 @@ const credentials = [
     subtitle: "Google AI · University",
     color: "#4285f4",
     file: geminiCertificate,
+    aspectRatio: 1.294,
   },
   {
     issuer: "HackerRank",
@@ -43,6 +47,7 @@ const credentials = [
     subtitle: "Skill Certification",
     color: "#00a968",
     file: sqlCertificate,
+    aspectRatio: 1.312,
   },
   {
     issuer: "HackerRank",
@@ -51,6 +56,16 @@ const credentials = [
     subtitle: "Skill Certification",
     color: "#00add8",
     file: goCertificate,
+    aspectRatio: 1.312,
+  },
+  {
+    issuer: "HackerRank",
+    title: "Java (Basic)",
+    highlight: "Java",
+    subtitle: "Skill Certification",
+    color: "#e76f00",
+    image: javaCertificate,
+    aspectRatio: 1.333,
   },
 ];
 

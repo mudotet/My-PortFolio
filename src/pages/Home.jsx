@@ -10,6 +10,7 @@ import { SkillsSection } from "../components/SkillsSection";
 import { ProjectsSection } from "../components/ProjectsSection";
 import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
+import { WelcomeSequence } from "../components/WelcomeSequence";
 import resumeFile from "../assets/resume/PHAN_THANH_TU_CV_SOFTWARE_ENGINEER_GENERAL.pdf";
 import resumePreviewImage from "../assets/resume/PHAN_THANH_TU_CV_SOFTWARE_ENGINEER_GENERAL-preview.png";
 
@@ -18,7 +19,7 @@ const resumePreview = {
   title: "Phan Thanh Tu · Software Engineer",
   file: resumeFile,
   image: resumePreviewImage,
-  orientation: "portrait",
+  aspectRatio: 0.773,
 };
 
 export const Home = () => {
@@ -54,6 +55,7 @@ export const Home = () => {
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-background text-foreground">
+      <WelcomeSequence />
       <a href="#main-content" className="skip-link">
         Skip to content
       </a>
