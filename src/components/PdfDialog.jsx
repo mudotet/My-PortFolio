@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { X } from "lucide-react";
+import { getPreviewDialogSize } from "../lib/preview-size";
 
 export const PdfDialog = ({ preview, onClose }) => {
   const dialogRef = useRef(null);
@@ -12,7 +13,29 @@ export const PdfDialog = ({ preview, onClose }) => {
     document.body.style.overflow = "hidden";
     dialog.showModal();
 
+    const resizeDialog = () => {
+      const viewport = window.visualViewport;
+      const size = getPreviewDialogSize({
+        viewportWidth: viewport?.width ?? window.innerWidth,
+        viewportHeight: viewport?.height ?? window.innerHeight,
+        headerHeight: dialog.querySelector("header")?.offsetHeight ?? 68,
+        aspectRatio: preview.aspectRatio ?? 1.294,
+      });
+
+      dialog.style.width = `${size.width}px`;
+      dialog.style.height = `${size.height}px`;
+    };
+
+    const frameId = requestAnimationFrame(resizeDialog);
+    window.addEventListener("resize", resizeDialog);
+    window.addEventListener("orientationchange", resizeDialog);
+    window.visualViewport?.addEventListener("resize", resizeDialog);
+
     return () => {
+      cancelAnimationFrame(frameId);
+      window.removeEventListener("resize", resizeDialog);
+      window.removeEventListener("orientationchange", resizeDialog);
+      window.visualViewport?.removeEventListener("resize", resizeDialog);
       document.body.style.overflow = previousOverflow;
       if (dialog.open) dialog.close();
     };
@@ -22,7 +45,6 @@ export const PdfDialog = ({ preview, onClose }) => {
     <dialog
       ref={dialogRef}
       className="certificate-dialog"
-      style={{ "--preview-ratio": preview?.aspectRatio ?? 1.294 }}
       aria-labelledby="pdf-dialog-title"
       onClose={onClose}
       onClick={(event) => {

@@ -5,12 +5,12 @@ import {
   Eye,
   GraduationCap,
 } from "lucide-react";
-import cs50Certificate from "../assets/certificate/CS50x.pdf";
-import geminiCertificate from "../assets/certificate/Gemini_Certificate_Student.pdf";
 import ieltsCertificate from "../assets/certificate/IELTS-CERTIFICATE.pdf";
-import goCertificate from "../assets/certificate/golang_basic certificate.pdf";
+import cs50Preview from "../assets/certificate/cs50_preview.jpg";
+import geminiPreview from "../assets/certificate/gemini_preview.jpg";
+import goPreview from "../assets/certificate/go_basic_preview.jpg";
 import javaCertificate from "../assets/certificate/java_basic_certificate.png";
-import sqlCertificate from "../assets/certificate/SQL_Advanced certificate.pdf";
+import sqlPreview from "../assets/certificate/sql_advanced_preview.jpg";
 
 const credentials = [
   {
@@ -20,7 +20,7 @@ const credentials = [
     subtitle: "Overall Band Score · CEFR C1",
     color: "#d71920",
     file: ieltsCertificate,
-    aspectRatio: 1.414,
+    aspectRatio: 0.707,
   },
   {
     issuer: "Harvard University",
@@ -28,7 +28,7 @@ const credentials = [
     highlight: "CS50",
     subtitle: "Introduction to Computer Science",
     color: "#a51c30",
-    file: cs50Certificate,
+    image: cs50Preview,
     aspectRatio: 1.294,
   },
   {
@@ -37,7 +37,7 @@ const credentials = [
     highlight: "Gemini",
     subtitle: "Google AI · University",
     color: "#4285f4",
-    file: geminiCertificate,
+    image: geminiPreview,
     aspectRatio: 1.294,
   },
   {
@@ -46,7 +46,7 @@ const credentials = [
     highlight: "SQL",
     subtitle: "Skill Certification",
     color: "#00a968",
-    file: sqlCertificate,
+    image: sqlPreview,
     aspectRatio: 1.312,
   },
   {
@@ -55,7 +55,7 @@ const credentials = [
     highlight: "Go",
     subtitle: "Skill Certification",
     color: "#00add8",
-    file: goCertificate,
+    image: goPreview,
     aspectRatio: 1.312,
   },
   {

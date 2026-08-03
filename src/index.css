@@ -491,19 +491,10 @@
 
   .certificate-dialog {
     --dialog-header-height: 4.25rem;
-    width: min(
-      94vw,
-      70rem,
-      calc((92dvh - var(--dialog-header-height)) * var(--preview-ratio))
-    );
-    max-width: none;
-    height: calc(
-      min(
-        94vw,
-        70rem,
-        calc((92dvh - var(--dialog-header-height)) * var(--preview-ratio))
-      ) / var(--preview-ratio) + var(--dialog-header-height)
-    );
+    width: 94vw;
+    max-width: 70rem;
+    height: 92vh;
+    height: 92dvh;
     margin: auto;
     padding: 0;
     overflow: hidden;
