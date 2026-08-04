@@ -1,29 +1,29 @@
 @import "tailwindcss";
 
 @theme {
-  --color-border: hsl(var(--border));
-  --color-input: hsl(var(--input));
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
-  --color-card: hsl(var(--card));
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-secondary: hsl(var(--secondary));
-  --color-secondary-foreground: hsl(var(--secondary-foreground));
-  --color-muted: hsl(var(--muted));
-  --color-muted-foreground: hsl(var(--muted-foreground));
-  --color-accent: hsl(var(--accent));
-  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-border: var(--neo-ink);
+  --color-input: var(--neo-ink);
+  --color-background: var(--neo-cream);
+  --color-foreground: var(--neo-ink);
+  --color-card: var(--neo-white);
+  --color-primary: var(--neo-red);
+  --color-primary-foreground: var(--neo-ink);
+  --color-secondary: var(--neo-yellow);
+  --color-secondary-foreground: var(--neo-ink);
+  --color-muted: var(--neo-violet);
+  --color-muted-foreground: var(--neo-ink);
+  --color-accent: var(--neo-red);
+  --color-accent-foreground: var(--neo-ink);
   --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   /* Space Grotesk publishes up to 700; map the black role to its real heaviest weight. */
   --font-weight-black: 700;
-  --shadow-neo-xs: 3px 3px 0 #000000;
-  --shadow-neo-sm: 5px 5px 0 #000000;
-  --shadow-neo-md: 8px 8px 0 #000000;
-  --shadow-neo-lg: 12px 12px 0 #000000;
-  --shadow-neo-bottom: 0 5px 0 #000000;
-  --shadow-neo-inverse: 8px 8px 0 #FFFFFF;
-  --shadow-neo-inverse-lg: 12px 12px 0 #FFFFFF;
+  --shadow-neo-xs: 3px 3px 0 var(--neo-ink);
+  --shadow-neo-sm: 5px 5px 0 var(--neo-ink);
+  --shadow-neo-md: 8px 8px 0 var(--neo-ink);
+  --shadow-neo-lg: 12px 12px 0 var(--neo-ink);
+  --shadow-neo-bottom: 0 5px 0 var(--neo-ink);
+  --shadow-neo-inverse: 8px 8px 0 var(--neo-white);
+  --shadow-neo-inverse-lg: 12px 12px 0 var(--neo-white);
 
   --animate-fade-in: fade-in 180ms steps(2, end) forwards;
   --animate-fade-in-delay-1: fade-in 180ms steps(2, end) 80ms forwards;
@@ -81,15 +81,15 @@
 @keyframes welcome-color-cuts {
   0%,
   32.9% {
-    background: #FF6B6B;
+    background: var(--neo-red);
   }
   33%,
   65.9% {
-    background: #FFD93D;
+    background: var(--neo-yellow);
   }
   66%,
   100% {
-    background: #C4B5FD;
+    background: var(--neo-violet);
   }
 }
 
@@ -107,19 +107,13 @@
 
 @layer base {
   :root {
-    --background: 48 100% 98%;
-    --foreground: 0 0% 0%;
-    --card: 0 0% 100%;
-    --primary: 0 100% 71%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 47 100% 62%;
-    --secondary-foreground: 0 0% 0%;
-    --muted: 252 94% 85%;
-    --muted-foreground: 0 0% 0%;
-    --accent: 0 100% 71%;
-    --accent-foreground: 0 0% 0%;
-    --border: 0 0% 0%;
-    --input: 0 0% 0%;
+    --neo-cream: #FFFDF5;
+    --neo-ink: #000000;
+    --neo-red: #FF6B6B;
+    --neo-yellow: #FFD93D;
+    --neo-violet: #C4B5FD;
+    --neo-white: #FFFFFF;
+    --neo-ink-rgb: 0 0 0;
   }
 
   * {
@@ -163,14 +157,14 @@
   }
 
   ::selection {
-    color: #000000;
-    background: #FFD93D;
+    color: var(--neo-ink);
+    background: var(--neo-yellow);
   }
 
   :focus-visible {
-    outline: 4px solid #000000;
+    outline: 4px solid var(--neo-ink);
     outline-offset: 3px;
-    box-shadow: 0 0 0 3px #FFD93D;
+    box-shadow: 0 0 0 3px var(--neo-yellow);
   }
 
   section[id] {
@@ -251,7 +245,7 @@
 
 .display-outline {
   color: transparent;
-  -webkit-text-stroke: 2px #000000;
+  -webkit-text-stroke: 2px var(--neo-ink);
   paint-order: stroke fill;
 }
 
@@ -264,8 +258,8 @@
   overflow: hidden;
   cursor: pointer;
   isolation: isolate;
-  color: #000000;
-  background: #FF6B6B;
+  color: var(--neo-ink);
+  background: var(--neo-red);
   animation:
     welcome-color-cuts 1.44s steps(1, end) both,
     welcome-exit 160ms steps(2, end) 1.45s forwards;
@@ -291,16 +285,16 @@
   max-width: calc(100vw - 3rem);
   grid-area: 1 / 1;
   margin: 0 auto;
-  border: 4px solid #000000;
+  border: 4px solid var(--neo-ink);
   padding: 0.35rem 0.7rem;
   font-size: clamp(1rem, 2vw, 1.35rem);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  background: #FFFDF5;
+  background: var(--neo-cream);
   box-shadow: var(--shadow-neo-md);
   opacity: 0;
-  animation: welcome-poster-step 480ms steps(1, end) both;
+  animation: welcome-poster-step 480ms steps(1, end) forwards;
 }
 
 .welcome-character {
@@ -312,13 +306,13 @@
 .welcome-line:first-child {
   font-size: clamp(2.7rem, 8vw, 6rem);
   letter-spacing: -0.065em;
-  background: #FFD93D;
+  background: var(--neo-yellow);
   transform: rotate(-2deg);
   animation-delay: 0ms;
 }
 
 .welcome-line:nth-child(2) {
-  background: #C4B5FD;
+  background: var(--neo-violet);
   transform: rotate(1deg);
   animation-delay: 480ms;
 }
@@ -332,8 +326,8 @@
   position: absolute;
   width: min(52vw, 42rem);
   aspect-ratio: 1;
-  border: 4px solid #000000;
-  background: #FFD93D;
+  border: 4px solid var(--neo-ink);
+  background: var(--neo-yellow);
   box-shadow: var(--shadow-neo-lg);
 }
 
@@ -346,7 +340,7 @@
 .welcome-orb-end {
   right: -22%;
   bottom: -38%;
-  background: #C4B5FD;
+  background: var(--neo-violet);
   transform: rotate(-8deg);
 }
 
@@ -357,10 +351,10 @@
     left: 0.75rem;
     z-index: 100;
     transform: translateY(-180%);
-    border: 4px solid #000000;
+    border: 4px solid var(--neo-ink);
     padding: 0.7rem 1rem;
-    color: #000000;
-    background: #FFD93D;
+    color: var(--neo-ink);
+    background: var(--neo-yellow);
     box-shadow: var(--shadow-neo-xs);
   }
 
@@ -373,8 +367,8 @@
     inset: 0 0 auto;
     z-index: 70;
     height: 7px;
-    border-bottom: 3px solid #000000;
-    background: #FFFDF5;
+    border-bottom: 3px solid var(--neo-ink);
+    background: var(--neo-cream);
   }
 
   .scroll-progress span {
@@ -383,7 +377,7 @@
     height: 100%;
     transform: scaleX(0);
     transform-origin: left;
-    background: #FF6B6B;
+    background: var(--neo-red);
     will-change: transform;
   }
 
@@ -402,16 +396,12 @@
 
   .section-indicator-number,
   .section-indicator-label {
-    border: 2px solid #000000;
+    border: 2px solid var(--neo-ink);
     padding: 0.25rem;
     font-size: 0.65rem;
     font-weight: 700;
-    color: #000000;
-    background: #FFD93D;
-  }
-
-  .section-indicator-number {
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: var(--neo-ink);
+    background: var(--neo-yellow);
   }
 
   .section-indicator-track {
@@ -419,8 +409,8 @@
     width: 6px;
     height: 5.5rem;
     overflow: hidden;
-    border: 2px solid #000000;
-    background: #FFFFFF;
+    border: 2px solid var(--neo-ink);
+    background: var(--neo-white);
   }
 
   .section-indicator-track span {
@@ -428,14 +418,14 @@
     inset: 0;
     transform: scaleY(0.16);
     transform-origin: top;
-    background: #FF6B6B;
+    background: var(--neo-red);
     transition: transform 180ms linear;
   }
 
   .section-indicator-label {
     writing-mode: vertical-rl;
     text-transform: uppercase;
-    background: #C4B5FD;
+    background: var(--neo-violet);
   }
 
   @media (width >= 1280px) {
@@ -447,14 +437,14 @@
   .ambient-grid {
     opacity: 0.3;
     background-image:
-      linear-gradient(to right, rgb(0 0 0 / 0.16) 2px, transparent 2px),
-      linear-gradient(to bottom, rgb(0 0 0 / 0.16) 2px, transparent 2px);
+      linear-gradient(to right, rgb(var(--neo-ink-rgb) / 0.16) 2px, transparent 2px),
+      linear-gradient(to bottom, rgb(var(--neo-ink-rgb) / 0.16) 2px, transparent 2px);
     background-size: 48px 48px;
   }
 
   .halftone-patch {
     opacity: 0.18;
-    background-image: radial-gradient(#000000 2px, transparent 2.5px);
+    background-image: radial-gradient(var(--neo-ink) 2px, transparent 2.5px);
     background-size: 18px 18px;
   }
 
@@ -478,15 +468,15 @@
   }
 
   .credential-tone-primary {
-    --credential-color: #FF6B6B;
+    --credential-color: var(--neo-red);
   }
 
   .credential-tone-secondary {
-    --credential-color: #FFD93D;
+    --credential-color: var(--neo-yellow);
   }
 
   .credential-tone-muted {
-    --credential-color: #C4B5FD;
+    --credential-color: var(--neo-violet);
   }
 
   .credential-card::after {
@@ -495,9 +485,9 @@
     top: 1rem;
     right: -2rem;
     width: 8rem;
-    border-block: 3px solid #000000;
+    border-block: 3px solid var(--neo-ink);
     padding-block: 0.15rem;
-    color: #000000;
+    color: var(--neo-ink);
     background: var(--credential-color);
     font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
     font-size: 0.65rem;
@@ -526,9 +516,9 @@
     margin: auto;
     padding: 0;
     overflow: hidden;
-    border: 4px solid #000000;
-    color: #000000;
-    background: #FFFFFF;
+    border: 4px solid var(--neo-ink);
+    color: var(--neo-ink);
+    background: var(--neo-white);
     box-shadow: var(--shadow-neo-lg);
     flex-direction: column;
     opacity: 0;
@@ -554,7 +544,7 @@
   }
 
   .certificate-dialog::backdrop {
-    background: rgb(0 0 0 / 0.78);
+    background: rgb(var(--neo-ink-rgb) / 0.78);
   }
 
   .certificate-frame,
@@ -565,7 +555,7 @@
     flex: 1;
     border: 0;
     object-fit: contain;
-    background: #FFFFFF;
+    background: var(--neo-white);
   }
 
   .certificate-dialog > header {
@@ -581,23 +571,23 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border: 3px solid #000000;
-    color: #000000;
-    background: #FFFFFF;
+    border: 3px solid var(--neo-ink);
+    color: var(--neo-ink);
+    background: var(--neo-white);
     box-shadow: var(--shadow-neo-inverse);
     transition: transform 100ms linear, box-shadow 100ms linear;
   }
 
   .featured-tech:nth-child(3n + 1) {
-    background: #FFD93D;
+    background: var(--neo-yellow);
   }
 
   .featured-tech:nth-child(3n + 2) {
-    background: #C4B5FD;
+    background: var(--neo-violet);
   }
 
   .featured-tech:nth-child(3n) {
-    background: #FF6B6B;
+    background: var(--neo-red);
   }
 
   .featured-tech:hover {
@@ -611,14 +601,14 @@
     height: 3.5rem;
     align-items: center;
     justify-content: center;
-    border: 3px solid #000000;
-    color: #000000;
-    background: #FFFDF5;
+    border: 3px solid var(--neo-ink);
+    color: var(--neo-ink);
+    background: var(--neo-cream);
   }
 
   .experience-list {
-    border: 4px solid #000000;
-    background: #FFFFFF;
+    border: 4px solid var(--neo-ink);
+    background: var(--neo-white);
     box-shadow: var(--shadow-neo-md);
   }
 
@@ -627,7 +617,7 @@
   }
 
   .experience-entry + .experience-entry {
-    border-top: 4px solid #000000;
+    border-top: 4px solid var(--neo-ink);
   }
 
   .experience-entry::before {
@@ -635,19 +625,19 @@
     position: absolute;
     inset: 0 auto 0 0;
     width: 0.65rem;
-    background: #FFD93D;
+    background: var(--neo-yellow);
     transition: width 100ms linear, background 100ms linear;
   }
 
   .experience-entry:hover::before {
     width: 1rem;
-    background: #FF6B6B;
+    background: var(--neo-red);
   }
 
   .project-card-motion {
     position: relative;
-    border: 4px solid #000000;
-    background: #FFFFFF;
+    border: 4px solid var(--neo-ink);
+    background: var(--neo-white);
     box-shadow: var(--shadow-neo-md);
     transition: transform 120ms linear, box-shadow 120ms linear;
   }
@@ -658,24 +648,24 @@
   }
 
   .project-visual {
-    border-bottom: 4px solid #000000;
-    background-color: #FFD93D;
-    background-image: radial-gradient(#000000 1.5px, transparent 1.5px);
+    border-bottom: 4px solid var(--neo-ink);
+    background-color: var(--neo-yellow);
+    background-image: radial-gradient(var(--neo-ink) 1.5px, transparent 1.5px);
     background-size: 18px 18px;
   }
 
   .project-card-featured .project-visual {
-    background-color: #C4B5FD;
+    background-color: var(--neo-violet);
     background-image:
-      linear-gradient(to right, rgb(0 0 0 / 0.18) 2px, transparent 2px),
-      linear-gradient(to bottom, rgb(0 0 0 / 0.18) 2px, transparent 2px);
+      linear-gradient(to right, rgb(var(--neo-ink-rgb) / 0.18) 2px, transparent 2px),
+      linear-gradient(to bottom, rgb(var(--neo-ink-rgb) / 0.18) 2px, transparent 2px);
     background-size: 28px 28px;
   }
 
   .flow-line {
     position: relative;
     height: 4px;
-    background: #000000;
+    background: var(--neo-ink);
   }
 
   .flow-line::after {
@@ -684,20 +674,20 @@
     top: -5px;
     right: -1px;
     border-block: 7px solid transparent;
-    border-left: 10px solid #000000;
+    border-left: 10px solid var(--neo-ink);
   }
 
   .project-motion-shell:hover .flow-node {
     transform: rotate(-2deg) translateY(-2px);
-    background: #FF6B6B;
+    background: var(--neo-red);
   }
 
   .neo-input {
     width: 100%;
-    border: 4px solid #000000;
+    border: 4px solid var(--neo-ink);
     padding: 0.8rem 1rem;
-    color: #000000;
-    background: #FFFFFF;
+    color: var(--neo-ink);
+    background: var(--neo-white);
     font-size: 1rem;
     font-weight: 700;
     box-shadow: 4px 4px 0 transparent;
@@ -705,12 +695,12 @@
   }
 
   .neo-input::placeholder {
-    color: rgb(0 0 0 / 0.5);
+    color: rgb(var(--neo-ink-rgb) / 0.5);
   }
 
   .neo-input:focus-visible {
     outline: none;
-    background: #FFD93D;
+    background: var(--neo-yellow);
     box-shadow: var(--shadow-neo-xs);
   }
 }

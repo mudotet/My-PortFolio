@@ -37,7 +37,7 @@ export const Navbar = () => {
     >
       <div className="container flex items-center justify-between">
         <a
-          className="group flex items-center text-left text-lg font-black text-black"
+          className="group flex min-h-11 items-center text-left text-lg font-black text-black"
           href="#hero"
         >
           <span className="mr-3 inline-flex h-10 w-10 items-center justify-center border-3 border-black bg-primary text-sm font-black text-black shadow-neo-xs transition-transform duration-100 group-hover:-rotate-3">
