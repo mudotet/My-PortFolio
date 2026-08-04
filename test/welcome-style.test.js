@@ -25,5 +25,10 @@ test("welcome uses a high-contrast poster treatment without gradients", async ()
     css,
     /\.welcome-line:nth-child\(3\)[\s\S]*font-size:\s*clamp\(1\.25rem, 4\.5vw, 3\.5rem\)/
   );
-  assert.match(finalCharacterRule, /animation-delay:\s*var\(--welcome-line-delay\)/);
+  assert.match(css, /@keyframes welcome-character-reveal/);
+  assert.match(finalCharacterRule, /opacity:\s*0/);
+  assert.match(
+    finalCharacterRule,
+    /animation:\s*welcome-character-reveal 1ms linear var\(--welcome-delay\) forwards/
+  );
 });
