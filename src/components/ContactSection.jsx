@@ -58,72 +58,72 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="relative z-10 bg-secondary/50 px-4 py-24">
+    <section id="contact" className="relative z-10 border-b-8 border-black bg-primary px-4 py-24 md:py-28">
       <div className="section-shell">
         <div data-reveal className="max-w-3xl text-left">
           <p className="eyebrow">
-            <Mail className="h-3.5 w-3.5 text-primary" />
+            <Mail className="h-4 w-4 stroke-[3]" />
             Contact
           </p>
-          <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] md:text-5xl">
+          <h2 className="mt-6 text-5xl font-black uppercase tracking-[-0.06em] md:text-7xl">
             Let&apos;s build something useful.
           </h2>
-          <p className="mt-5 text-muted-foreground">
+          <p className="mt-6 max-w-[62ch] border-l-4 border-black pl-5 text-lg leading-8 text-black">
             I am always open to thoughtful conversations about software,
             product ideas, and opportunities to create useful technology.
           </p>
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
-          <div data-reveal className="space-y-8 border-t border-border pt-8 text-left">
-            <h3 className="text-2xl font-bold">Contact information</h3>
+          <div data-reveal className="surface-panel -rotate-1 space-y-8 p-6 text-left sm:p-8">
+            <h3 className="text-3xl font-black uppercase">Contact information</h3>
             <div className="space-y-6 justify-center">
               <div className="flex items-start space-x-4">
-                <div className="rounded-md bg-primary/10 p-3">
-                  <Mail className="h-6 w-6 text-primary" />
+                <div className="border-3 border-black bg-secondary p-3 shadow-neo-xs">
+                  <Mail className="h-6 w-6 stroke-[3] text-black" />
                 </div>
                 <div>
-                  <h4 className="font-medium">Email</h4>
+                  <h4 className="font-mono text-xs font-bold uppercase tracking-wide">Email</h4>
                   <a
                     href="mailto:mudotet@gmail.com"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="font-black text-black underline decoration-2 underline-offset-4"
                   >
                     mudotet@gmail.com
                   </a>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
-                <div className="rounded-md bg-primary/10 p-3">
-                  <Phone className="h-6 w-6 text-primary" />
+                <div className="border-3 border-black bg-muted p-3 shadow-neo-xs">
+                  <Phone className="h-6 w-6 stroke-[3] text-black" />
                 </div>
                 <div>
-                  <h4 className="font-medium">Phone</h4>
+                  <h4 className="font-mono text-xs font-bold uppercase tracking-wide">Phone</h4>
                   <a
                     href="tel:+840865812730"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="font-black text-black underline decoration-2 underline-offset-4"
                   >
                     +84 086-581-2730
                   </a>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
-                <div className="rounded-md bg-primary/10 p-3">
-                  <MapPin className="h-6 w-6 text-primary" />
+                <div className="border-3 border-black bg-primary p-3 shadow-neo-xs">
+                  <MapPin className="h-6 w-6 stroke-[3] text-black" />
                 </div>
                 <div>
-                  <h4 className="font-medium">Location</h4>
-                  <p className="text-muted-foreground">Ha Noi, Viet Nam</p>
+                  <h4 className="font-mono text-xs font-bold uppercase tracking-wide">Location</h4>
+                  <p className="font-black text-black">Ha Noi, Viet Nam</p>
                 </div>
               </div>
             </div>
             <div className="pt-8">
-              <h4 className="font-medium mb-4">Connect with me</h4>
+              <h4 className="mb-4 font-mono text-xs font-bold uppercase tracking-wide">Connect with me</h4>
               <div className="flex gap-3">
                 <a
                   href="https://github.com/mudotet"
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-md border border-border p-3 text-muted-foreground transition hover:border-primary hover:text-primary"
+                  className="inline-flex h-12 w-12 items-center justify-center border-3 border-black bg-secondary text-black shadow-neo-xs transition duration-100 active:translate-x-[3px] active:translate-y-[3px] active:shadow-none"
                   aria-label="GitHub profile"
                 >
                   <Github />
@@ -132,7 +132,7 @@ export const ContactSection = () => {
                   href="https://www.linkedin.com/in/t%C3%BA-phan-203970327/"
                   target="_blank"
                   rel="noreferrer"
-                  className="rounded-md border border-border p-3 text-muted-foreground transition hover:border-primary hover:text-primary"
+                  className="inline-flex h-12 w-12 items-center justify-center border-3 border-black bg-muted text-black shadow-neo-xs transition duration-100 active:translate-x-[3px] active:translate-y-[3px] active:shadow-none"
                   aria-label="LinkedIn profile"
                 >
                   <Linkedin />
@@ -143,14 +143,14 @@ export const ContactSection = () => {
           <div
             data-reveal
             style={{ "--reveal-delay": "100ms" }}
-            className="surface-panel p-6 text-left sm:p-8"
+            className="surface-panel rotate-1 p-6 text-left sm:p-8"
           >
-            <h3 className="text-2xl font-bold mb-6">Send a message</h3>
+            <h3 className="mb-7 text-3xl font-black uppercase">Send a message</h3>
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium mb-2"
+                  className="mb-2 block font-mono text-xs font-bold uppercase tracking-wide"
                 >
                   Your name
                 </label>
@@ -160,7 +160,7 @@ export const ContactSection = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-md bg-background border border-input focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
+                  className="neo-input"
                   placeholder="Your name"
                   required
                 />
@@ -168,7 +168,7 @@ export const ContactSection = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium mb-2"
+                  className="mb-2 block font-mono text-xs font-bold uppercase tracking-wide"
                 >
                   Your email
                 </label>
@@ -178,7 +178,7 @@ export const ContactSection = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-md bg-background border border-input focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
+                  className="neo-input"
                   placeholder="you@company.com"
                   required
                 />
@@ -186,7 +186,7 @@ export const ContactSection = () => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium mb-2"
+                  className="mb-2 block font-mono text-xs font-bold uppercase tracking-wide"
                 >
                   Your message
                 </label>
@@ -195,7 +195,7 @@ export const ContactSection = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="min-h-36 w-full resize-none rounded-md border border-input bg-background px-4 py-3 transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="neo-input min-h-36 resize-none"
                   placeholder="Hello Tu, I would like to talk about..."
                   required
                 />
@@ -203,7 +203,7 @@ export const ContactSection = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="cosmic-button w-full"
+                className="neo-button w-full"
               >
                 {isSubmitting ? "Sending..." : "Send message"}
                 <Send size={16} />

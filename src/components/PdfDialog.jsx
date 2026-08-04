@@ -53,25 +53,25 @@ export const PdfDialog = ({ preview, onClose }) => {
     >
       {preview && (
         <>
-          <header className="flex items-center justify-between gap-4 border-b border-border bg-card px-4 py-3 sm:px-5">
+          <header className="flex items-center justify-between gap-4 border-b-4 border-black bg-secondary px-4 py-3 text-black sm:px-5">
             <div className="min-w-0 text-left">
-              <p className="truncate text-xs font-bold uppercase tracking-[0.12em] text-primary">
+              <p className="truncate font-mono text-xs font-bold uppercase tracking-[0.12em] text-black">
                 {preview.issuer}
               </p>
               <h3
                 id="pdf-dialog-title"
-                className="truncate text-base font-bold sm:text-lg"
+                className="truncate text-base font-black uppercase sm:text-lg"
               >
                 {preview.title}
               </h3>
             </div>
             <button
               type="button"
-              className="rounded-md border border-border p-2 text-muted-foreground transition hover:border-primary hover:text-primary"
+              className="inline-flex h-11 w-11 items-center justify-center border-3 border-black bg-primary text-black shadow-neo-xs transition duration-100 active:translate-x-[3px] active:translate-y-[3px] active:shadow-none"
               aria-label="Close document preview"
               onClick={() => dialogRef.current?.close()}
             >
-              <X className="h-5 w-5" />
+              <X className="h-5 w-5 stroke-[3]" />
             </button>
           </header>
           {preview.image ? (

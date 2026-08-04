@@ -1,14 +1,13 @@
 import { cn } from "../lib/utills";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   { name: "Home", href: "#hero" },
   { name: "About", href: "#about" },
+  { name: "Projects", href: "#projects" },
   { name: "Experience", href: "#experience" },
   { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -29,44 +28,43 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed z-40 w-full transition-all duration-300",
+        "fixed z-40 w-full border-b-4 border-black transition-all duration-100",
         isScrolled
-          ? "border-b border-border bg-background/90 py-3 backdrop-blur-xl"
-          : "py-5"
+          ? "bg-background py-2 shadow-neo-bottom"
+          : "bg-secondary py-3"
       )}
       aria-label="Primary navigation"
     >
       <div className="container flex items-center justify-between">
         <a
-          className="group flex items-center text-left text-lg font-bold text-primary"
+          className="group flex items-center text-left text-lg font-black text-black"
           href="#hero"
         >
-          <span className="mr-3 inline-flex h-9 w-9 items-center justify-center rounded-[0.65rem_0.2rem_0.65rem_0.2rem] bg-primary text-sm text-primary-foreground transition-transform duration-300 group-hover:-rotate-3">
+          <span className="mr-3 inline-flex h-10 w-10 items-center justify-center border-3 border-black bg-primary text-sm font-black text-black shadow-neo-xs transition-transform duration-100 group-hover:-rotate-3">
             PT
           </span>
           <span className="relative z-10 leading-tight">
-            <span className="block text-foreground">Phan Thanh Tu</span>
-            <span className="block font-mono text-[0.65rem] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+            <span className="block text-black">Phan Thanh Tu</span>
+            <span className="block font-mono text-[0.65rem] font-bold uppercase tracking-[0.14em] text-black">
               Backend engineer
             </span>
           </span>
         </a>
         <div className="flex items-center gap-2">
-          <div className="mr-2 hidden items-center gap-6 md:flex">
+          <div className="hidden items-center gap-1 md:flex">
             {navItems.map((item) => (
               <a
                 href={item.href}
                 key={item.href}
-                className="text-sm font-medium text-foreground/70 transition-colors duration-300 hover:text-primary"
+                className="border-2 border-transparent px-2 py-1 text-xs font-black uppercase tracking-wide text-black transition duration-100 hover:border-black hover:bg-primary"
               >
                 {item.name}
               </a>
             ))}
           </div>
-          <ThemeToggle />
           <button
             onClick={() => setIsMenuOpen((prev) => !prev)}
-            className="z-50 rounded-md border border-border bg-card p-2 text-foreground transition hover:border-primary md:hidden"
+            className="z-50 inline-flex h-11 w-11 items-center justify-center border-3 border-black bg-primary text-black shadow-neo-xs transition duration-100 active:translate-x-[3px] active:translate-y-[3px] active:shadow-none md:hidden"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
           >
@@ -75,7 +73,7 @@ export const Navbar = () => {
         </div>
         <div
           className={cn(
-            "fixed inset-0 z-50 flex items-center justify-center bg-background/96 backdrop-blur-md transition-all duration-300 md:hidden",
+            "fixed inset-0 z-50 flex items-center justify-center bg-muted transition-all duration-100 md:hidden",
             isMenuOpen
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"
@@ -83,17 +81,17 @@ export const Navbar = () => {
         >
           <button
             onClick={() => setIsMenuOpen(false)}
-            className="absolute right-6 top-6 rounded-md border border-border bg-card p-3 shadow-lg transition hover:border-primary"
+            className="absolute right-6 top-6 border-4 border-black bg-primary p-3 text-black shadow-neo-sm transition duration-100 active:translate-x-[5px] active:translate-y-[5px] active:shadow-none"
             aria-label="Close menu"
           >
-            <X size={28} className="text-primary" />
+            <X size={28} />
           </button>
-          <div className="flex min-w-[70vw] flex-col items-center gap-6 rounded-2xl border border-border bg-card px-10 py-10 shadow-xl">
+          <div className="flex min-w-[78vw] -rotate-1 flex-col items-stretch gap-3 border-4 border-black bg-card px-6 py-8 shadow-neo-lg sm:min-w-[28rem]">
             {navItems.map((item) => (
               <a
                 href={item.href}
                 key={item.href}
-                className="text-lg font-semibold text-foreground/90 hover:text-primary transition-colors duration-200"
+                className="border-3 border-black bg-background px-5 py-3 text-left text-xl font-black uppercase text-black transition duration-100 hover:translate-x-1 hover:bg-secondary"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}

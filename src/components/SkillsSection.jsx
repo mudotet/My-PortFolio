@@ -26,23 +26,23 @@ import {
 } from "react-icons/si";
 
 const techFlow = [
-  { name: "Java", icon: SiOpenjdk, color: "#ED8B00" },
-  { name: "Go", icon: SiGo, color: "#00ADD8" },
-  { name: "Python", icon: SiPython, color: "#3776AB" },
-  { name: "JavaScript", icon: SiJavascript, color: "#E5C300" },
-  { name: "Spring Boot", icon: SiSpringboot, color: "#6DB33F" },
-  { name: "Spring Security", icon: SiSpringsecurity, color: "#6DB33F" },
-  { name: "JWT", icon: SiJsonwebtokens, color: "#D63AFF" },
-  { name: "NestJS", icon: SiNestjs, color: "#E0234E" },
-  { name: "FastAPI", icon: SiFastapi, color: "#009688" },
-  { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
-  { name: "MySQL", icon: SiMysql, color: "#4479A1" },
-  { name: "Redis", icon: SiRedis, color: "#DC382D" },
-  { name: "Docker", icon: SiDocker, color: "#2496ED" },
-  { name: "Swagger", icon: SiSwagger, color: "#69B42D" },
-  { name: "OpenAI Vision", icon: BrainCircuit, color: "#10A37F" },
-  { name: "React", icon: SiReact, color: "#149ECA" },
-  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+  { name: "Java", icon: SiOpenjdk },
+  { name: "Go", icon: SiGo },
+  { name: "Python", icon: SiPython },
+  { name: "JavaScript", icon: SiJavascript },
+  { name: "Spring Boot", icon: SiSpringboot },
+  { name: "Spring Security", icon: SiSpringsecurity },
+  { name: "JWT", icon: SiJsonwebtokens },
+  { name: "NestJS", icon: SiNestjs },
+  { name: "FastAPI", icon: SiFastapi },
+  { name: "PostgreSQL", icon: SiPostgresql },
+  { name: "MySQL", icon: SiMysql },
+  { name: "Redis", icon: SiRedis },
+  { name: "Docker", icon: SiDocker },
+  { name: "Swagger", icon: SiSwagger },
+  { name: "OpenAI Vision", icon: BrainCircuit },
+  { name: "React", icon: SiReact },
+  { name: "Tailwind CSS", icon: SiTailwindcss },
 ];
 
 const featuredTechNames = new Set([
@@ -116,20 +116,20 @@ export const SkillsSection = () => {
   return (
     <section
       id="skills"
-      className="relative z-10 overflow-hidden bg-secondary/50 px-4 py-24"
+      className="relative z-10 overflow-hidden border-b-8 border-black bg-black px-4 py-24 text-white md:py-28"
     >
       <div className="section-shell">
         <div data-reveal className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <div className="text-left">
             <p className="eyebrow">
-              <Server className="h-3.5 w-3.5 text-primary" />
+              <Server className="h-4 w-4 stroke-[3] text-black" />
               Skills
             </p>
-            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] md:text-5xl">
+            <h2 className="mt-6 text-5xl font-black uppercase tracking-[-0.06em] text-white md:text-7xl">
               Technical toolkit.
             </h2>
           </div>
-          <p className="text-left leading-8 text-muted-foreground">
+          <p className="border-l-4 border-white pl-5 text-left text-lg leading-8 text-white">
             My strongest stack is backend-heavy, with enough frontend fluency to
             integrate, debug, and ship complete product flows. The emphasis is
             on APIs, security, databases, and practical delivery.
@@ -137,9 +137,9 @@ export const SkillsSection = () => {
         </div>
 
         <div className="mt-12">
-          <div className="mb-4 flex items-center justify-between gap-4 text-left">
-            <h3 className="text-lg font-bold">Primary stack</h3>
-            <span className="text-sm text-muted-foreground">
+          <div className="mb-5 flex items-center justify-between gap-4 text-left">
+            <h3 className="text-2xl font-black uppercase text-white">Primary stack</h3>
+            <span className="font-mono text-xs font-bold uppercase text-white">
               Used across production work and projects
             </span>
           </div>
@@ -149,18 +149,15 @@ export const SkillsSection = () => {
                 key={tech.name}
                 data-reveal
                 className="featured-tech group"
-                style={{
-                  "--tech-color": tech.color,
-                  "--reveal-delay": `${index * 50}ms`,
-                }}
+                style={{ "--reveal-delay": `${index * 50}ms` }}
               >
                 <span className="featured-tech-icon">
                   <tech.icon className="h-9 w-9" aria-hidden="true" />
                 </span>
-                <span className="mt-4 text-sm font-bold text-foreground">
+                <span className="mt-4 text-sm font-black uppercase text-black">
                   {tech.name}
                 </span>
-                <span className="mt-1 text-xs text-muted-foreground">
+                <span className="mt-1 font-mono text-xs font-bold uppercase text-black">
                   Core stack
                 </span>
               </div>
@@ -168,24 +165,23 @@ export const SkillsSection = () => {
           </div>
         </div>
 
-        <div data-reveal className="mt-8 overflow-hidden border-y border-border bg-card/55 py-3">
+        <div
+          data-reveal
+          tabIndex={0}
+          aria-label="Supporting technologies. Animation pauses while focused."
+          className="tech-conveyor mt-10 overflow-hidden border-4 border-white bg-primary py-3 shadow-neo-inverse"
+        >
           <div className="tech-marquee flex min-w-max gap-3 px-3">
             {[...supportingTechs, ...supportingTechs].map((tech, index) => (
               <div
                 key={`${tech.name}-${index}`}
                 aria-hidden={index >= supportingTechs.length ? "true" : undefined}
-                className="group flex min-w-36 items-center gap-3 px-3 py-2 transition duration-300 hover:-translate-y-0.5"
+                className="group flex min-w-40 items-center gap-3 border-3 border-black bg-card px-3 py-2 text-black shadow-neo-xs transition duration-100 hover:-translate-y-0.5"
               >
-                <span
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md"
-                  style={{
-                    color: tech.color,
-                    backgroundColor: `${tech.color}18`,
-                  }}
-                >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center border-2 border-black bg-secondary text-black">
                   <tech.icon className="h-6 w-6" aria-hidden="true" />
                 </span>
-                <span className="whitespace-nowrap text-sm font-semibold text-foreground/80 transition group-hover:text-foreground">
+                <span className="whitespace-nowrap text-sm font-black uppercase text-black">
                   {tech.name}
                 </span>
               </div>
@@ -194,13 +190,13 @@ export const SkillsSection = () => {
         </div>
 
         <div data-reveal className="mt-16 flex items-center justify-between gap-4 text-left">
-          <h3 className="text-xl font-bold">Capabilities</h3>
-          <span className="text-sm text-muted-foreground">
+          <h3 className="text-2xl font-black uppercase text-white">Capabilities</h3>
+          <span className="font-mono text-xs font-bold uppercase text-white">
             How the stack is applied
           </span>
         </div>
 
-        <div className="mt-6 grid gap-x-6 gap-y-10 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {skillGroups.map((group, index) => {
             const Icon = group.icon;
             return (
@@ -208,15 +204,15 @@ export const SkillsSection = () => {
                 key={group.title}
                 data-reveal
                 style={{ "--reveal-delay": `${index * 70}ms` }}
-                className="flex h-full flex-col border-t border-border px-1 pt-5 text-left transition duration-300 hover:border-primary"
+                className="surface-panel flex h-full flex-col p-6 text-left text-black shadow-neo-inverse transition duration-100 hover:-translate-y-1 hover:shadow-neo-inverse-lg"
               >
                 <div className="flex items-start gap-4">
-                  <div className="rounded-md bg-primary/10 p-3 text-primary">
-                    <Icon className="h-6 w-6" />
+                  <div className="border-3 border-black bg-primary p-3 text-black shadow-neo-xs">
+                    <Icon className="h-6 w-6 stroke-[3]" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold">{group.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                    <h3 className="text-xl font-black uppercase">{group.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-black">
                       {group.summary}
                     </p>
                   </div>
@@ -225,14 +221,14 @@ export const SkillsSection = () => {
                   {group.stack.map((item) => (
                     <span
                       key={item}
-                      className="rounded-md bg-secondary px-2.5 py-1 text-xs font-semibold text-secondary-foreground"
+                      className="border-2 border-black bg-muted px-2.5 py-1 font-mono text-xs font-bold text-black"
                     >
                       {item}
                     </span>
                   ))}
                 </div>
-                <div className="mt-5 border-t border-border pt-4">
-                  <p className="text-sm leading-6 text-muted-foreground">
+                <div className="mt-5 border-t-3 border-black pt-4">
+                  <p className="text-sm leading-6 text-black">
                     {group.proof}
                   </p>
                 </div>

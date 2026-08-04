@@ -10,7 +10,7 @@ export const WelcomeSequence = () => {
     if (!isVisible) return undefined;
 
     markWelcomeSeen();
-    const timeout = window.setTimeout(() => setIsVisible(false), 4250);
+    const timeout = window.setTimeout(() => setIsVisible(false), 1650);
     return () => window.clearTimeout(timeout);
   }, [isVisible]);
 
@@ -39,7 +39,7 @@ export const WelcomeSequence = () => {
               <span
                 key={`${character}-${characterIndex}`}
                 className="welcome-character"
-                style={{ "--welcome-delay": `${lineIndex * 750 + characterIndex * 50}ms` }}
+                style={{ "--welcome-delay": `${lineIndex * 420 + characterIndex * 18}ms` }}
               >
                 {character === " " ? "\u00A0" : character}
               </span>

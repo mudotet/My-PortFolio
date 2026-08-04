@@ -65,9 +65,9 @@ export const Home = () => {
       <main id="main-content">
         <HeroSection onOpenResume={openResume} />
         <AboutSection onOpenResume={openResume} onPreview={setPdfPreview} />
+        <ProjectsSection />
         <ExperienceSection />
         <SkillsSection />
-        <ProjectsSection />
         <ContactSection />
       </main>
       <PdfDialog preview={pdfPreview} onClose={() => setPdfPreview(null)} />

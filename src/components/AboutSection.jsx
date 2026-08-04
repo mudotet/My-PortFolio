@@ -18,7 +18,7 @@ const credentials = [
     title: "IELTS Academic",
     highlight: "7.0",
     subtitle: "Overall Band Score · CEFR C1",
-    color: "#d71920",
+    color: "#FF6B6B",
     file: ieltsCertificate,
     aspectRatio: 0.707,
   },
@@ -27,7 +27,7 @@ const credentials = [
     title: "CS50x",
     highlight: "CS50",
     subtitle: "Introduction to Computer Science",
-    color: "#a51c30",
+    color: "#FFD93D",
     image: cs50Preview,
     aspectRatio: 1.294,
   },
@@ -36,7 +36,7 @@ const credentials = [
     title: "Gemini Certified Student",
     highlight: "Gemini",
     subtitle: "Google AI · University",
-    color: "#4285f4",
+    color: "#C4B5FD",
     image: geminiPreview,
     aspectRatio: 1.294,
   },
@@ -45,7 +45,7 @@ const credentials = [
     title: "SQL (Advanced)",
     highlight: "SQL",
     subtitle: "Skill Certification",
-    color: "#00a968",
+    color: "#FF6B6B",
     image: sqlPreview,
     aspectRatio: 1.312,
   },
@@ -54,7 +54,7 @@ const credentials = [
     title: "Go (Basic)",
     highlight: "Go",
     subtitle: "Skill Certification",
-    color: "#00add8",
+    color: "#FFD93D",
     image: goPreview,
     aspectRatio: 1.312,
   },
@@ -63,7 +63,7 @@ const credentials = [
     title: "Java (Basic)",
     highlight: "Java",
     subtitle: "Skill Certification",
-    color: "#e76f00",
+    color: "#C4B5FD",
     image: javaCertificate,
     aspectRatio: 1.333,
   },
@@ -71,23 +71,23 @@ const credentials = [
 
 export const AboutSection = ({ onOpenResume, onPreview }) => {
   return (
-    <section id="about" className="relative z-10 px-4 py-24">
+    <section id="about" className="relative z-10 border-b-8 border-black bg-muted px-4 py-24 md:py-28">
       <div className="section-shell">
         <div className="grid gap-12 lg:grid-cols-[1.12fr_0.88fr] lg:items-start">
           <div data-reveal className="max-w-2xl text-left">
             <p className="eyebrow">
-              <BriefcaseBusiness className="h-3.5 w-3.5 text-primary" />
+              <BriefcaseBusiness className="h-4 w-4 stroke-[3]" />
               About
             </p>
-            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] md:text-5xl">
+            <h2 className="mt-6 text-5xl font-black uppercase tracking-[-0.06em] md:text-7xl">
               Building with purpose.
             </h2>
-            <p className="mt-6 text-lg leading-8 text-foreground/80">
+            <p className="mt-7 max-w-[62ch] border-l-4 border-black pl-5 text-lg font-bold leading-8 text-black">
               I am Phan Thanh Tu, a software engineer who enjoys turning
               practical problems into dependable backend systems and useful AI
               products.
             </p>
-            <p className="mt-4 leading-8 text-muted-foreground">
+            <p className="mt-4 max-w-[62ch] leading-8 text-black">
               My work spans API design, authentication, data infrastructure,
               payment flows, and AI-assisted experiences. Teaching programming
               has also shaped how I communicate technical ideas and collaborate
@@ -97,54 +97,54 @@ export const AboutSection = ({ onOpenResume, onPreview }) => {
               type="button"
               aria-haspopup="dialog"
               onClick={onOpenResume}
-              className="mt-8 inline-flex items-center gap-2 rounded-md border border-primary px-4 py-3 text-sm font-semibold text-primary transition hover:bg-primary/10"
+              className="neo-button mt-8"
             >
               <BookOpen className="h-4 w-4" />
               View CV
             </button>
           </div>
 
-          <div data-reveal className="surface-panel p-6 text-left">
+          <div data-reveal className="surface-panel rotate-1 p-6 text-left transition duration-100 hover:rotate-0 sm:p-8">
             <div className="flex items-center gap-3">
-              <div className="rounded-md bg-primary/10 p-3 text-primary">
-                <GraduationCap className="h-6 w-6" />
+              <div className="border-3 border-black bg-secondary p-3 text-black shadow-neo-xs">
+                <GraduationCap className="h-7 w-7 stroke-[3]" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-muted-foreground">
+                <p className="font-mono text-xs font-bold uppercase tracking-[0.14em] text-black">
                   Education
                 </p>
-                <h3 className="text-lg font-bold">
+                <h3 className="mt-1 text-xl font-black uppercase">
                   Ha Noi University of Mining and Geology
                 </h3>
               </div>
             </div>
-            <dl className="mt-6 divide-y divide-border border-y border-border">
+            <dl className="mt-7 border-3 border-black">
               <div className="grid grid-cols-[1fr_auto] gap-4 py-4">
-                <div>
-                  <dt className="font-semibold">IT Engineering</dt>
-                  <dd className="mt-1 text-sm text-muted-foreground">
+                <div className="pl-4">
+                  <dt className="font-bold">IT Engineering</dt>
+                  <dd className="mt-1 text-sm text-black">
                     Bachelor&apos;s degree
                   </dd>
                 </div>
-                <dd className="text-sm font-semibold text-primary">Jan 2027</dd>
+                <dd className="mr-4 font-mono text-sm font-bold text-black">Jan 2027</dd>
               </div>
-              <div className="grid grid-cols-[1fr_auto] gap-4 py-4">
-                <div>
-                  <dt className="font-semibold">Academic scholarship</dt>
-                  <dd className="mt-1 text-sm text-muted-foreground">
+              <div className="grid grid-cols-[1fr_auto] gap-4 border-t-3 border-black bg-secondary py-4">
+                <div className="pl-4">
+                  <dt className="font-bold">Academic scholarship</dt>
+                  <dd className="mt-1 text-sm text-black">
                     Merit-based award
                   </dd>
                 </div>
-                <dd className="text-sm font-semibold text-primary">3.67/4.0</dd>
+                <dd className="mr-4 font-mono text-sm font-bold text-black">3.67/4.0</dd>
               </div>
-              <div className="grid grid-cols-[1fr_auto] gap-4 py-4">
-                <div>
-                  <dt className="font-semibold">Java Basic</dt>
-                  <dd className="mt-1 text-sm text-muted-foreground">
+              <div className="grid grid-cols-[1fr_auto] gap-4 border-t-3 border-black py-4">
+                <div className="pl-4">
+                  <dt className="font-bold">Java Basic</dt>
+                  <dd className="mt-1 text-sm text-black">
                     HackerRank certificate
                   </dd>
                 </div>
-                <dd className="text-sm font-semibold text-primary">Verified</dd>
+                <dd className="mr-4 font-mono text-sm font-bold text-black">Verified</dd>
               </div>
             </dl>
           </div>
@@ -153,21 +153,21 @@ export const AboutSection = ({ onOpenResume, onPreview }) => {
         <div className="mt-16">
           <div data-reveal className="flex flex-col gap-3 text-left sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="eyebrow">
-                <Award className="h-3.5 w-3.5 text-primary" />
+              <p className="eyebrow rotate-1 bg-primary">
+                <Award className="h-4 w-4 stroke-[3]" />
                 Credentials
               </p>
-              <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] md:text-5xl">
+              <h2 className="mt-6 text-5xl font-black uppercase tracking-[-0.06em] md:text-7xl">
                 Recognized credentials.
               </h2>
             </div>
-            <p className="max-w-xl leading-7 text-muted-foreground">
+            <p className="max-w-xl border-l-4 border-black pl-4 leading-7 text-black">
               Verified achievements across English, computer science, AI, and
               backend engineering.
             </p>
           </div>
 
-          <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
             {credentials.map((credential, index) => (
               <button
                 key={credential.title}
@@ -185,22 +185,22 @@ export const AboutSection = ({ onOpenResume, onPreview }) => {
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <p className="credential-issuer">{credential.issuer}</p>
-                    <p className="mt-1 text-3xl font-black text-foreground">
+                    <p className="mt-1 text-3xl font-black text-black">
                       {credential.highlight}
                     </p>
                   </div>
-                  <Eye className="h-5 w-5 text-muted-foreground transition group-hover:text-primary" />
+                  <Eye className="h-6 w-6 stroke-[3] text-black" />
                 </div>
-                <div className="mt-10 flex items-end justify-between gap-4 border-t border-border pt-5">
+                <div className="mt-10 flex items-end justify-between gap-4 border-t-3 border-black pt-5">
                   <div>
-                    <p className="text-xl font-black text-foreground">
+                    <p className="text-xl font-black uppercase text-black">
                       {credential.title}
                     </p>
-                    <p className="mt-2 text-sm font-semibold text-muted-foreground">
+                    <p className="mt-2 text-sm font-bold text-black">
                       {credential.subtitle}
                     </p>
                   </div>
-                  <span className="shrink-0 text-sm font-semibold text-primary">
+                  <span className="shrink-0 border-2 border-black bg-secondary px-2 py-1 font-mono text-xs font-bold uppercase text-black">
                     Preview
                   </span>
                 </div>
