@@ -136,7 +136,7 @@ export const ExperienceSection = () => {
               <article
                 key={`${experience.organization}-${experience.period}`}
                 data-reveal
-                style={{ "--reveal-delay": `${index * 70}ms` }}
+                style={{ transitionDelay: `${Math.min(index * 20, 120)}ms` }}
                 className="experience-entry grid gap-6 px-6 py-8 sm:px-8 lg:grid-cols-[0.38fr_1.62fr] lg:gap-12"
               >
                 <div className="text-left">

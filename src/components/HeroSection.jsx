@@ -50,7 +50,7 @@ export const HeroSection = ({ onOpenResume }) => {
                     key={`${character}-${index}`}
                     aria-hidden="true"
                     className="hero-character"
-                    style={{ "--character-delay": `${180 + index * 45}ms` }}
+                    style={{ "--character-delay": `${40 + index * 16}ms` }}
                   >
                     {character === " " ? "\u00A0" : character}
                   </span>

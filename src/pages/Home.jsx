@@ -26,10 +26,17 @@ export const Home = () => {
   const [pdfPreview, setPdfPreview] = useState(null);
 
   useEffect(() => {
-    const root = document.documentElement;
     const elements = document.querySelectorAll("[data-reveal]");
 
-    root.classList.add("reveal-ready");
+    if (!document.documentElement.classList.contains("reveal-ready")) {
+      elements.forEach((element) => element.classList.add("is-visible"));
+      return undefined;
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      elements.forEach((element) => element.classList.add("is-visible"));
+      return undefined;
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -40,15 +47,11 @@ export const Home = () => {
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -48px" }
+      { threshold: 0.01, rootMargin: "0px 0px -14% 0px" }
     );
 
     elements.forEach((element) => observer.observe(element));
-
-    return () => {
-      observer.disconnect();
-      root.classList.remove("reveal-ready");
-    };
+    return () => observer.disconnect();
   }, []);
 
   const openResume = () => setPdfPreview(resumePreview);

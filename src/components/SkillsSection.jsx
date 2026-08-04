@@ -149,7 +149,7 @@ export const SkillsSection = () => {
                 key={tech.name}
                 data-reveal
                 className="featured-tech group"
-                style={{ "--reveal-delay": `${index * 50}ms` }}
+                style={{ transitionDelay: `${Math.min(index * 20, 120)}ms` }}
               >
                 <span className="featured-tech-icon">
                   <tech.icon className="h-9 w-9" aria-hidden="true" />
@@ -203,7 +203,7 @@ export const SkillsSection = () => {
               <div
                 key={group.title}
                 data-reveal
-                style={{ "--reveal-delay": `${index * 70}ms` }}
+                style={{ transitionDelay: `${Math.min(index * 20, 120)}ms` }}
                 className="surface-panel flex h-full flex-col p-6 text-left text-black shadow-neo-inverse transition duration-100 hover:-translate-y-1 hover:shadow-neo-inverse-lg"
               >
                 <div className="flex items-start gap-4">

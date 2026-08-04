@@ -183,9 +183,7 @@ export const AboutSection = ({ onOpenResume, onPreview }) => {
                 key={credential.title}
                 type="button"
                 data-reveal
-                style={{
-                  "--reveal-delay": `${index * 70}ms`,
-                }}
+                style={{ transitionDelay: `${Math.min(index * 20, 120)}ms` }}
                 className={`credential-card group ${credential.tone}`}
                 aria-haspopup="dialog"
                 aria-label={`View ${credential.title} certificate from ${credential.issuer}`}

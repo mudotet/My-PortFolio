@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { markWelcomeSeen, shouldShowWelcome } from "../lib/welcome";
 
 const lines = ["Phan Thanh Tu", "Software Engineer", "Welcome to my work."];
+const lineStarts = [0, 540, 1080];
+const lineDurations = [540, 540, 720];
 
 export const WelcomeSequence = () => {
   const [isVisible, setIsVisible] = useState(shouldShowWelcome);
@@ -10,7 +12,7 @@ export const WelcomeSequence = () => {
     if (!isVisible) return undefined;
 
     markWelcomeSeen();
-    const timeout = window.setTimeout(() => setIsVisible(false), 1650);
+    const timeout = window.setTimeout(() => setIsVisible(false), 1970);
     return () => window.clearTimeout(timeout);
   }, [isVisible]);
 
@@ -34,12 +36,21 @@ export const WelcomeSequence = () => {
       <div className="welcome-orb welcome-orb-end" aria-hidden="true" />
       <div className="welcome-copy" aria-hidden="true">
         {lines.map((line, lineIndex) => (
-          <p key={line} className="welcome-line">
+          <p
+            key={line}
+            className="welcome-line"
+            style={{
+              "--welcome-line-delay": `${lineStarts[lineIndex]}ms`,
+              "--welcome-line-duration": `${lineDurations[lineIndex]}ms`,
+            }}
+          >
             {Array.from(line).map((character, characterIndex) => (
               <span
                 key={`${character}-${characterIndex}`}
                 className="welcome-character"
-                style={{ "--welcome-delay": `${lineIndex * 480 + characterIndex * 12}ms` }}
+                style={{
+                  "--welcome-delay": `${lineStarts[lineIndex] + characterIndex * 18}ms`,
+                }}
               >
                 {character === " " ? "\u00A0" : character}
               </span>

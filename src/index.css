@@ -25,38 +25,38 @@
   --shadow-neo-inverse: 8px 8px 0 var(--neo-white);
   --shadow-neo-inverse-lg: 12px 12px 0 var(--neo-white);
 
-  --animate-fade-in: fade-in 180ms steps(2, end) forwards;
-  --animate-fade-in-delay-1: fade-in 180ms steps(2, end) 80ms forwards;
-  --animate-fade-in-delay-2: fade-in 180ms steps(2, end) 140ms forwards;
-  --animate-fade-in-delay-3: fade-in 180ms steps(2, end) 200ms forwards;
-  --animate-fade-in-delay-4: fade-in 180ms steps(2, end) 260ms forwards;
+  --animate-fade-in: fade-in 180ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-in-delay-1: fade-in 180ms cubic-bezier(0.16, 1, 0.3, 1) 40ms forwards;
+  --animate-fade-in-delay-2: fade-in 180ms cubic-bezier(0.16, 1, 0.3, 1) 80ms forwards;
+  --animate-fade-in-delay-3: fade-in 180ms cubic-bezier(0.16, 1, 0.3, 1) 120ms forwards;
+  --animate-fade-in-delay-4: fade-in 180ms cubic-bezier(0.16, 1, 0.3, 1) 160ms forwards;
 }
 
 @keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(0.5rem);
+    transform: translate3d(0, 0.5rem, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes hero-character-reveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.45em, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes marquee {
   to {
     transform: translateX(-50%);
-  }
-}
-
-@keyframes character-reveal {
-  from {
-    opacity: 0;
-    transform: translateY(0.65em) rotate(5deg);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) rotate(0);
   }
 }
 
@@ -80,14 +80,14 @@
 
 @keyframes welcome-color-cuts {
   0%,
-  32.9% {
+  29.9% {
     background: var(--neo-red);
   }
-  33%,
-  65.9% {
+  30%,
+  59.9% {
     background: var(--neo-yellow);
   }
-  66%,
+  60%,
   100% {
     background: var(--neo-violet);
   }
@@ -219,16 +219,16 @@
 
 .reveal-ready [data-reveal] {
   opacity: 0;
-  transform: translateY(0.75rem);
+  transform: translate3d(0, 1.25rem, 0) scale(0.99);
+  transform-origin: center top;
   transition:
-    opacity 180ms steps(2, end),
-    transform 180ms steps(2, end);
-  transition-delay: var(--reveal-delay, 0ms);
+    opacity 280ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 280ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-ready [data-reveal].is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
 }
 
 .hero-name {
@@ -239,7 +239,7 @@
 .hero-character {
   display: inline-block;
   opacity: 0;
-  animation: character-reveal 180ms steps(2, end) forwards;
+  animation: hero-character-reveal 180ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
   animation-delay: var(--character-delay);
 }
 
@@ -261,8 +261,8 @@
   color: var(--neo-ink);
   background: var(--neo-red);
   animation:
-    welcome-color-cuts 1.44s steps(1, end) both,
-    welcome-exit 160ms steps(2, end) 1.45s forwards;
+    welcome-color-cuts 1.8s steps(1, end) both,
+    welcome-exit 160ms steps(2, end) 1.81s forwards;
 }
 
 .welcome-sequence:focus-visible {
@@ -294,13 +294,14 @@
   background: var(--neo-cream);
   box-shadow: var(--shadow-neo-md);
   opacity: 0;
-  animation: welcome-poster-step 480ms steps(1, end) forwards;
+  animation: welcome-poster-step var(--welcome-line-duration) steps(1, end)
+    var(--welcome-line-delay) forwards;
 }
 
 .welcome-character {
   display: inline-block;
   opacity: 0;
-  animation: welcome-line-in 120ms steps(2, end) var(--welcome-delay) forwards;
+  animation: welcome-line-in 1ms steps(1, end) var(--welcome-delay) forwards;
 }
 
 .welcome-line:first-child {
@@ -314,12 +315,19 @@
 .welcome-line:nth-child(2) {
   background: var(--neo-violet);
   transform: rotate(1deg);
-  animation-delay: 480ms;
 }
 
 .welcome-line:nth-child(3) {
+  padding: 0.55rem 0.9rem;
+  font-size: clamp(1.25rem, 4.5vw, 3.5rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  white-space: nowrap;
   transform: rotate(-1deg);
-  animation-delay: 960ms;
+}
+
+.welcome-line:nth-child(3) .welcome-character {
+  animation-delay: var(--welcome-line-delay);
 }
 
 .welcome-orb {
@@ -724,6 +732,8 @@
   .reveal-ready [data-reveal] {
     opacity: 1 !important;
     transform: none !important;
+    animation: none !important;
+    transition: none !important;
   }
 
   .tech-marquee {

@@ -116,7 +116,7 @@ export const ProjectsSection = () => {
               <div
                 key={project.id}
                 data-reveal
-                style={{ "--reveal-delay": `${index * 70}ms` }}
+                style={{ transitionDelay: `${Math.min(index * 20, 120)}ms` }}
                 className={`project-motion-shell h-full ${project.featured ? "lg:col-span-3" : ""}`}
               >
                 <article

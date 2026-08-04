@@ -142,7 +142,7 @@ export const ContactSection = () => {
           </div>
           <div
             data-reveal
-            style={{ "--reveal-delay": "100ms" }}
+            style={{ transitionDelay: "40ms" }}
             className="surface-panel p-6 text-left sm:p-8"
           >
             <h3 className="mb-7 text-3xl font-black uppercase">Send a message</h3>
