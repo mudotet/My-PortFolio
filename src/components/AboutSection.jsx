@@ -10,9 +10,19 @@ import cs50Preview from "../assets/certificate/cs50_preview.jpg";
 import geminiPreview from "../assets/certificate/gemini_preview.jpg";
 import goPreview from "../assets/certificate/go_basic_preview.jpg";
 import javaCertificate from "../assets/certificate/java_basic_certificate.png";
+import softwareEngineerInternCertificate from "../assets/certificate/software_engineer_intern certificate.pdf";
 import sqlPreview from "../assets/certificate/sql_advanced_preview.jpg";
 
 const credentials = [
+  {
+    issuer: "HackerRank",
+    title: "Software Engineer Intern",
+    highlight: "SE Intern",
+    subtitle: "Role Certification · Aug 2026",
+    tone: "credential-tone-primary",
+    file: softwareEngineerInternCertificate,
+    aspectRatio: 1.312,
+  },
   {
     issuer: "IDP Education",
     title: "IELTS Academic",
