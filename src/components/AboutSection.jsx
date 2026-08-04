@@ -18,7 +18,7 @@ const credentials = [
     title: "IELTS Academic",
     highlight: "7.0",
     subtitle: "Overall Band Score · CEFR C1",
-    color: "#FF6B6B",
+    tone: "credential-tone-primary",
     file: ieltsCertificate,
     aspectRatio: 0.707,
   },
@@ -27,7 +27,7 @@ const credentials = [
     title: "CS50x",
     highlight: "CS50",
     subtitle: "Introduction to Computer Science",
-    color: "#FFD93D",
+    tone: "credential-tone-secondary",
     image: cs50Preview,
     aspectRatio: 1.294,
   },
@@ -36,7 +36,7 @@ const credentials = [
     title: "Gemini Certified Student",
     highlight: "Gemini",
     subtitle: "Google AI · University",
-    color: "#C4B5FD",
+    tone: "credential-tone-muted",
     image: geminiPreview,
     aspectRatio: 1.294,
   },
@@ -45,7 +45,7 @@ const credentials = [
     title: "SQL (Advanced)",
     highlight: "SQL",
     subtitle: "Skill Certification",
-    color: "#FF6B6B",
+    tone: "credential-tone-primary",
     image: sqlPreview,
     aspectRatio: 1.312,
   },
@@ -54,7 +54,7 @@ const credentials = [
     title: "Go (Basic)",
     highlight: "Go",
     subtitle: "Skill Certification",
-    color: "#FFD93D",
+    tone: "credential-tone-secondary",
     image: goPreview,
     aspectRatio: 1.312,
   },
@@ -63,7 +63,7 @@ const credentials = [
     title: "Java (Basic)",
     highlight: "Java",
     subtitle: "Skill Certification",
-    color: "#C4B5FD",
+    tone: "credential-tone-muted",
     image: javaCertificate,
     aspectRatio: 1.333,
   },
@@ -104,13 +104,13 @@ export const AboutSection = ({ onOpenResume, onPreview }) => {
             </button>
           </div>
 
-          <div data-reveal className="surface-panel rotate-1 p-6 text-left transition duration-100 hover:rotate-0 sm:p-8">
+          <div data-reveal className="surface-panel p-6 text-left sm:p-8">
             <div className="flex items-center gap-3">
               <div className="border-3 border-black bg-secondary p-3 text-black shadow-neo-xs">
                 <GraduationCap className="h-7 w-7 stroke-[3]" />
               </div>
               <div>
-                <p className="font-mono text-xs font-bold uppercase tracking-[0.14em] text-black">
+                <p className="text-xs font-bold uppercase tracking-[0.14em] text-black">
                   Education
                 </p>
                 <h3 className="mt-1 text-xl font-black uppercase">
@@ -135,7 +135,7 @@ export const AboutSection = ({ onOpenResume, onPreview }) => {
                     Merit-based award
                   </dd>
                 </div>
-                <dd className="mr-4 font-mono text-sm font-bold text-black">3.67/4.0</dd>
+                <dd className="mr-4 text-sm font-bold text-black">3.67/4.0</dd>
               </div>
               <div className="grid grid-cols-[1fr_auto] gap-4 border-t-3 border-black py-4">
                 <div className="pl-4">
@@ -174,10 +174,9 @@ export const AboutSection = ({ onOpenResume, onPreview }) => {
                 type="button"
                 data-reveal
                 style={{
-                  "--credential-color": credential.color,
                   "--reveal-delay": `${index * 70}ms`,
                 }}
-                className="credential-card group"
+                className={`credential-card group ${credential.tone}`}
                 aria-haspopup="dialog"
                 aria-label={`View ${credential.title} certificate from ${credential.issuer}`}
                 onClick={() => onPreview(credential)}
@@ -200,7 +199,7 @@ export const AboutSection = ({ onOpenResume, onPreview }) => {
                       {credential.subtitle}
                     </p>
                   </div>
-                  <span className="shrink-0 border-2 border-black bg-secondary px-2 py-1 font-mono text-xs font-bold uppercase text-black">
+                  <span className="shrink-0 border-2 border-black bg-secondary px-2 py-1 text-xs font-bold uppercase text-black">
                     Preview
                   </span>
                 </div>

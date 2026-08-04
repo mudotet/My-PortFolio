@@ -75,7 +75,7 @@ export const ContactSection = () => {
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
-          <div data-reveal className="surface-panel -rotate-1 space-y-8 p-6 text-left sm:p-8">
+          <div data-reveal className="surface-panel space-y-8 p-6 text-left sm:p-8">
             <h3 className="text-3xl font-black uppercase">Contact information</h3>
             <div className="space-y-6 justify-center">
               <div className="flex items-start space-x-4">
@@ -83,7 +83,7 @@ export const ContactSection = () => {
                   <Mail className="h-6 w-6 stroke-[3] text-black" />
                 </div>
                 <div>
-                  <h4 className="font-mono text-xs font-bold uppercase tracking-wide">Email</h4>
+                  <h4 className="text-xs font-bold uppercase tracking-wide">Email</h4>
                   <a
                     href="mailto:mudotet@gmail.com"
                     className="font-black text-black underline decoration-2 underline-offset-4"
@@ -97,7 +97,7 @@ export const ContactSection = () => {
                   <Phone className="h-6 w-6 stroke-[3] text-black" />
                 </div>
                 <div>
-                  <h4 className="font-mono text-xs font-bold uppercase tracking-wide">Phone</h4>
+                  <h4 className="text-xs font-bold uppercase tracking-wide">Phone</h4>
                   <a
                     href="tel:+840865812730"
                     className="font-black text-black underline decoration-2 underline-offset-4"
@@ -111,19 +111,19 @@ export const ContactSection = () => {
                   <MapPin className="h-6 w-6 stroke-[3] text-black" />
                 </div>
                 <div>
-                  <h4 className="font-mono text-xs font-bold uppercase tracking-wide">Location</h4>
+                  <h4 className="text-xs font-bold uppercase tracking-wide">Location</h4>
                   <p className="font-black text-black">Ha Noi, Viet Nam</p>
                 </div>
               </div>
             </div>
             <div className="pt-8">
-              <h4 className="mb-4 font-mono text-xs font-bold uppercase tracking-wide">Connect with me</h4>
+              <h4 className="mb-4 text-xs font-bold uppercase tracking-wide">Connect with me</h4>
               <div className="flex gap-3">
                 <a
                   href="https://github.com/mudotet"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex h-12 w-12 items-center justify-center border-3 border-black bg-secondary text-black shadow-neo-xs transition duration-100 active:translate-x-[3px] active:translate-y-[3px] active:shadow-none"
+                  className="neo-icon-button bg-secondary"
                   aria-label="GitHub profile"
                 >
                   <Github />
@@ -132,7 +132,7 @@ export const ContactSection = () => {
                   href="https://www.linkedin.com/in/t%C3%BA-phan-203970327/"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex h-12 w-12 items-center justify-center border-3 border-black bg-muted text-black shadow-neo-xs transition duration-100 active:translate-x-[3px] active:translate-y-[3px] active:shadow-none"
+                  className="neo-icon-button bg-muted"
                   aria-label="LinkedIn profile"
                 >
                   <Linkedin />
@@ -143,14 +143,14 @@ export const ContactSection = () => {
           <div
             data-reveal
             style={{ "--reveal-delay": "100ms" }}
-            className="surface-panel rotate-1 p-6 text-left sm:p-8"
+            className="surface-panel p-6 text-left sm:p-8"
           >
             <h3 className="mb-7 text-3xl font-black uppercase">Send a message</h3>
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="name"
-                  className="mb-2 block font-mono text-xs font-bold uppercase tracking-wide"
+                  className="mb-2 block text-xs font-bold uppercase tracking-wide"
                 >
                   Your name
                 </label>
@@ -168,7 +168,7 @@ export const ContactSection = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="mb-2 block font-mono text-xs font-bold uppercase tracking-wide"
+                  className="mb-2 block text-xs font-bold uppercase tracking-wide"
                 >
                   Your email
                 </label>
@@ -186,7 +186,7 @@ export const ContactSection = () => {
               <div>
                 <label
                   htmlFor="message"
-                  className="mb-2 block font-mono text-xs font-bold uppercase tracking-wide"
+                  className="mb-2 block text-xs font-bold uppercase tracking-wide"
                 >
                   Your message
                 </label>

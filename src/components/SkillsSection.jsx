@@ -139,7 +139,7 @@ export const SkillsSection = () => {
         <div className="mt-12">
           <div className="mb-5 flex items-center justify-between gap-4 text-left">
             <h3 className="text-2xl font-black uppercase text-white">Primary stack</h3>
-            <span className="font-mono text-xs font-bold uppercase text-white">
+            <span className="text-xs font-bold uppercase text-white">
               Used across production work and projects
             </span>
           </div>
@@ -157,7 +157,7 @@ export const SkillsSection = () => {
                 <span className="mt-4 text-sm font-black uppercase text-black">
                   {tech.name}
                 </span>
-                <span className="mt-1 font-mono text-xs font-bold uppercase text-black">
+                <span className="mt-1 text-xs font-bold uppercase text-black">
                   Core stack
                 </span>
               </div>
@@ -191,7 +191,7 @@ export const SkillsSection = () => {
 
         <div data-reveal className="mt-16 flex items-center justify-between gap-4 text-left">
           <h3 className="text-2xl font-black uppercase text-white">Capabilities</h3>
-          <span className="font-mono text-xs font-bold uppercase text-white">
+          <span className="text-xs font-bold uppercase text-white">
             How the stack is applied
           </span>
         </div>
@@ -221,7 +221,7 @@ export const SkillsSection = () => {
                   {group.stack.map((item) => (
                     <span
                       key={item}
-                      className="border-2 border-black bg-muted px-2.5 py-1 font-mono text-xs font-bold text-black"
+                      className="border-2 border-black bg-muted px-2.5 py-1 text-xs font-bold text-black"
                     >
                       {item}
                     </span>

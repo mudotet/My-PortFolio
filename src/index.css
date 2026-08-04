@@ -15,6 +15,8 @@
   --color-accent: hsl(var(--accent));
   --color-accent-foreground: hsl(var(--accent-foreground));
   --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  /* Space Grotesk publishes up to 700; map the black role to its real heaviest weight. */
+  --font-weight-black: 700;
   --shadow-neo-xs: 3px 3px 0 #000000;
   --shadow-neo-sm: 5px 5px 0 #000000;
   --shadow-neo-md: 8px 8px 0 #000000;
@@ -71,6 +73,33 @@
 
 @keyframes welcome-exit {
   to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes welcome-color-cuts {
+  0%,
+  32.9% {
+    background: #FF6B6B;
+  }
+  33%,
+  65.9% {
+    background: #FFD93D;
+  }
+  66%,
+  100% {
+    background: #C4B5FD;
+  }
+}
+
+@keyframes welcome-poster-step {
+  0%,
+  99% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
     opacity: 0;
     visibility: hidden;
   }
@@ -180,8 +209,8 @@
   @apply inline-flex min-h-12 items-center justify-center gap-2 border-4 border-black bg-secondary px-5 py-3 text-sm font-black uppercase tracking-wide text-black shadow-neo-sm transition duration-100 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-neo-md active:translate-x-[5px] active:translate-y-[5px] active:shadow-none;
 }
 
-@utility mono-label {
-  @apply font-mono text-xs font-bold uppercase tracking-[0.16em] text-black;
+@utility neo-icon-button {
+  @apply inline-flex h-12 w-12 items-center justify-center border-3 border-black text-black shadow-neo-xs transition duration-100 active:translate-x-[3px] active:translate-y-[3px] active:shadow-none;
 }
 
 .tech-marquee {
@@ -237,7 +266,9 @@
   isolation: isolate;
   color: #000000;
   background: #FF6B6B;
-  animation: welcome-exit 160ms steps(2, end) 1.45s forwards;
+  animation:
+    welcome-color-cuts 1.44s steps(1, end) both,
+    welcome-exit 160ms steps(2, end) 1.45s forwards;
 }
 
 .welcome-sequence:focus-visible {
@@ -247,6 +278,9 @@
 .welcome-copy {
   position: relative;
   z-index: 1;
+  display: grid;
+  width: 100%;
+  place-items: center;
   padding: 1.5rem;
   text-align: center;
   font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
@@ -254,6 +288,8 @@
 
 .welcome-line {
   width: fit-content;
+  max-width: calc(100vw - 3rem);
+  grid-area: 1 / 1;
   margin: 0 auto;
   border: 4px solid #000000;
   padding: 0.35rem 0.7rem;
@@ -263,6 +299,8 @@
   text-transform: uppercase;
   background: #FFFDF5;
   box-shadow: var(--shadow-neo-md);
+  opacity: 0;
+  animation: welcome-poster-step 480ms steps(1, end) both;
 }
 
 .welcome-character {
@@ -276,19 +314,18 @@
   letter-spacing: -0.065em;
   background: #FFD93D;
   transform: rotate(-2deg);
-}
-
-.welcome-line + .welcome-line {
-  margin-top: 0.8rem;
+  animation-delay: 0ms;
 }
 
 .welcome-line:nth-child(2) {
   background: #C4B5FD;
   transform: rotate(1deg);
+  animation-delay: 480ms;
 }
 
 .welcome-line:nth-child(3) {
   transform: rotate(-1deg);
+  animation-delay: 960ms;
 }
 
 .welcome-orb {
@@ -367,11 +404,14 @@
   .section-indicator-label {
     border: 2px solid #000000;
     padding: 0.25rem;
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
     font-size: 0.65rem;
     font-weight: 700;
     color: #000000;
     background: #FFD93D;
+  }
+
+  .section-indicator-number {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   }
 
   .section-indicator-track {
@@ -423,7 +463,7 @@
   }
 
   .eyebrow {
-    @apply inline-flex max-w-full -rotate-1 flex-wrap items-center gap-2 border-3 border-black bg-secondary px-3 py-1.5 font-mono text-xs font-bold uppercase tracking-[0.16em] text-black shadow-neo-xs;
+    @apply inline-flex max-w-full -rotate-1 flex-wrap items-center gap-2 border-3 border-black bg-secondary px-3 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-black shadow-neo-xs;
   }
 
   .surface-panel {
@@ -435,6 +475,18 @@
     border-top-width: 0.9rem;
     border-top-color: var(--credential-color);
     font: inherit;
+  }
+
+  .credential-tone-primary {
+    --credential-color: #FF6B6B;
+  }
+
+  .credential-tone-secondary {
+    --credential-color: #FFD93D;
+  }
+
+  .credential-tone-muted {
+    --credential-color: #C4B5FD;
   }
 
   .credential-card::after {
@@ -460,7 +512,6 @@
   }
 
   .credential-issuer {
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.08em;

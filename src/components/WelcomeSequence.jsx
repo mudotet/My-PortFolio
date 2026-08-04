@@ -39,7 +39,7 @@ export const WelcomeSequence = () => {
               <span
                 key={`${character}-${characterIndex}`}
                 className="welcome-character"
-                style={{ "--welcome-delay": `${lineIndex * 420 + characterIndex * 18}ms` }}
+                style={{ "--welcome-delay": `${lineIndex * 480 + characterIndex * 12}ms` }}
               >
                 {character === " " ? "\u00A0" : character}
               </span>

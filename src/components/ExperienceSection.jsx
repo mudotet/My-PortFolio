@@ -189,7 +189,7 @@ export const ExperienceSection = () => {
                     {experience.stack.map((technology) => (
                       <span
                         key={technology}
-                        className="border-2 border-black bg-secondary px-2.5 py-1 font-mono text-xs font-bold text-black"
+                        className="border-2 border-black bg-secondary px-2.5 py-1 text-xs font-bold text-black"
                       >
                         {technology}
                       </span>

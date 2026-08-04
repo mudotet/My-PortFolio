@@ -158,7 +158,7 @@ export const ProjectsSection = () => {
                   <div className={`flex flex-1 flex-col ${project.featured ? "p-7 sm:p-9" : "p-6"}`}>
                     <div className="mb-5 flex flex-wrap gap-2">
                       {project.tags.map((tag) => (
-                        <span key={tag} className="border-2 border-black bg-muted px-2.5 py-1 font-mono text-xs font-bold text-black">
+                        <span key={tag} className="border-2 border-black bg-muted px-2.5 py-1 text-xs font-bold text-black">
                           {tag}
                         </span>
                       ))}
@@ -170,21 +170,21 @@ export const ProjectsSection = () => {
 
                     <div className={`mt-7 ${project.featured ? "grid gap-6 sm:grid-cols-3" : "space-y-5"}`}>
                       <div>
-                        <div className="mb-2 flex items-center gap-2 border-b-3 border-black pb-2 font-mono text-xs font-bold uppercase">
+                        <div className="mb-2 flex items-center gap-2 border-b-3 border-black pb-2 text-xs font-bold uppercase">
                           <LockKeyhole className="h-4 w-4 stroke-[3]" />
                           Problem
                         </div>
                         <p className="text-sm leading-6 text-black">{project.problem}</p>
                       </div>
                       <div>
-                        <div className="mb-2 flex items-center gap-2 border-b-3 border-black pb-2 font-mono text-xs font-bold uppercase">
+                        <div className="mb-2 flex items-center gap-2 border-b-3 border-black pb-2 text-xs font-bold uppercase">
                           <ExternalLink className="h-4 w-4 stroke-[3]" />
                           Approach
                         </div>
                         <p className="text-sm leading-6 text-black">{project.solution}</p>
                       </div>
                       <div>
-                        <div className="mb-2 flex items-center gap-2 border-b-3 border-black pb-2 font-mono text-xs font-bold uppercase">
+                        <div className="mb-2 flex items-center gap-2 border-b-3 border-black pb-2 text-xs font-bold uppercase">
                           <BadgeCheck className="h-4 w-4 stroke-[3]" />
                           Impact
                         </div>

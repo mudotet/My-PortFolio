@@ -55,7 +55,7 @@ export const PdfDialog = ({ preview, onClose }) => {
         <>
           <header className="flex items-center justify-between gap-4 border-b-4 border-black bg-secondary px-4 py-3 text-black sm:px-5">
             <div className="min-w-0 text-left">
-              <p className="truncate font-mono text-xs font-bold uppercase tracking-[0.12em] text-black">
+              <p className="truncate text-xs font-bold uppercase tracking-[0.12em] text-black">
                 {preview.issuer}
               </p>
               <h3
@@ -67,7 +67,7 @@ export const PdfDialog = ({ preview, onClose }) => {
             </div>
             <button
               type="button"
-              className="inline-flex h-11 w-11 items-center justify-center border-3 border-black bg-primary text-black shadow-neo-xs transition duration-100 active:translate-x-[3px] active:translate-y-[3px] active:shadow-none"
+              className="neo-icon-button bg-primary"
               aria-label="Close document preview"
               onClick={() => dialogRef.current?.close()}
             >

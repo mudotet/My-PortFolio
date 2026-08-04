@@ -45,7 +45,7 @@ export const Navbar = () => {
           </span>
           <span className="relative z-10 leading-tight">
             <span className="block text-black">Phan Thanh Tu</span>
-            <span className="block font-mono text-[0.65rem] font-bold uppercase tracking-[0.14em] text-black">
+            <span className="block text-[0.65rem] font-bold uppercase tracking-[0.14em] text-black">
               Backend engineer
             </span>
           </span>
@@ -56,7 +56,7 @@ export const Navbar = () => {
               <a
                 href={item.href}
                 key={item.href}
-                className="border-2 border-transparent px-2 py-1 text-xs font-black uppercase tracking-wide text-black transition duration-100 hover:border-black hover:bg-primary"
+                className="inline-flex min-h-11 items-center border-2 border-transparent px-2 py-1 text-xs font-black uppercase tracking-wide text-black transition duration-100 hover:border-black hover:bg-primary"
               >
                 {item.name}
               </a>
@@ -64,41 +64,36 @@ export const Navbar = () => {
           </div>
           <button
             onClick={() => setIsMenuOpen((prev) => !prev)}
-            className="z-50 inline-flex h-11 w-11 items-center justify-center border-3 border-black bg-primary text-black shadow-neo-xs transition duration-100 active:translate-x-[3px] active:translate-y-[3px] active:shadow-none md:hidden"
+            className="neo-icon-button z-50 bg-primary md:hidden"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
-        <div
-          className={cn(
-            "fixed inset-0 z-50 flex items-center justify-center bg-muted transition-all duration-100 md:hidden",
-            isMenuOpen
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
-          )}
-        >
-          <button
-            onClick={() => setIsMenuOpen(false)}
-            className="absolute right-6 top-6 border-4 border-black bg-primary p-3 text-black shadow-neo-sm transition duration-100 active:translate-x-[5px] active:translate-y-[5px] active:shadow-none"
-            aria-label="Close menu"
-          >
-            <X size={28} />
-          </button>
-          <div className="flex min-w-[78vw] -rotate-1 flex-col items-stretch gap-3 border-4 border-black bg-card px-6 py-8 shadow-neo-lg sm:min-w-[28rem]">
-            {navItems.map((item) => (
-              <a
-                href={item.href}
-                key={item.href}
-                className="border-3 border-black bg-background px-5 py-3 text-left text-xl font-black uppercase text-black transition duration-100 hover:translate-x-1 hover:bg-secondary"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </a>
-            ))}
+        {isMenuOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-muted md:hidden">
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="neo-icon-button absolute right-6 top-6 bg-primary"
+              aria-label="Close menu"
+            >
+              <X size={28} />
+            </button>
+            <div className="flex min-w-[78vw] -rotate-1 flex-col items-stretch gap-3 border-4 border-black bg-card px-6 py-8 shadow-neo-lg sm:min-w-[28rem]">
+              {navItems.map((item) => (
+                <a
+                  href={item.href}
+                  key={item.href}
+                  className="border-3 border-black bg-background px-5 py-3 text-left text-xl font-black uppercase text-black transition duration-100 hover:translate-x-1 hover:bg-secondary"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </nav>
   );

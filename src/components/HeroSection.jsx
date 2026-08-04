@@ -42,7 +42,7 @@ export const HeroSection = ({ onOpenResume }) => {
             </div>
             <h1 className="mt-9 uppercase">
               <span
-                className="hero-name block font-mono text-sm font-bold tracking-[0.18em] text-black md:text-base"
+                className="hero-name block text-sm font-bold uppercase tracking-[0.18em] text-black md:text-base"
                 aria-label={displayName}
               >
                 {Array.from(displayName).map((character, index) => (
@@ -114,7 +114,7 @@ export const HeroSection = ({ onOpenResume }) => {
                   <dt className="text-lg font-black text-black">
                     {point.value}
                   </dt>
-                  <dd className="mt-1 font-mono text-xs font-bold leading-5 text-black">
+                  <dd className="mt-1 text-xs font-bold leading-5 text-black">
                     {point.label}
                   </dd>
                 </div>
@@ -145,7 +145,7 @@ export const HeroSection = ({ onOpenResume }) => {
               <figcaption className="flex flex-col items-start justify-between gap-3 px-3 py-4 sm:flex-row sm:items-center sm:gap-4 sm:px-4">
                 <div className="text-left">
                   <p className="font-black uppercase text-black">Phan Thanh Tu</p>
-                  <p className="mt-1 font-mono text-xs font-bold uppercase tracking-wide text-black">
+                  <p className="mt-1 text-xs font-bold uppercase tracking-wide text-black">
                     Backend-focused Software Engineer
                   </p>
                 </div>
