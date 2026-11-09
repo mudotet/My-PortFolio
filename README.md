@@ -43,7 +43,7 @@ named as in the script.
 
 ## 📬 Contact
 
-Feel free to reach out via the contact form on the website or connect with me on [LinkedIn](https://www.linkedin.com/) (update with your link).
+Feel free to reach out via the contact form on the website or connect with me on [LinkedIn](https://www.linkedin.com/in/phan-thanh-t%C3%BA-203970327/).
 
 ---
 

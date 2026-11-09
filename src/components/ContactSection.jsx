@@ -129,7 +129,7 @@ export const ContactSection = () => {
                   <Github />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/t%C3%BA-phan-203970327/"
+                  href="https://www.linkedin.com/in/phan-thanh-t%C3%BA-203970327/"
                   target="_blank"
                   rel="noreferrer"
                   className="neo-icon-button bg-muted"

@@ -82,7 +82,7 @@ def experience(company, dates, role, location, bullets):
 paragraph("PHAN THANH TÚ", size=18, align=1, gap=4)
 paragraph('0865812730 &nbsp; <link href="mailto:mudotet@gmail.com">mudotet@gmail.com</link> &nbsp; '
           '<link href="https://github.com/mudotet">github.com/mudotet</link> &nbsp; '
-          '<link href="https://www.linkedin.com/in/t%C3%BA-phan-203970327/">LinkedIn</link> &nbsp; '
+          '<link href="https://www.linkedin.com/in/phan-thanh-t%C3%BA-203970327/">LinkedIn</link> &nbsp; '
           '<link href="https://tus-portfolio.vercel.app/">Portfolio</link>', size=9.2, align=1, gap=3)
 
 section("Work Experience")

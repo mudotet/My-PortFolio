@@ -13,7 +13,7 @@ const socialLinks = [
   { label: "GitHub", href: "https://github.com/mudotet", icon: Github },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/t%C3%BA-phan-203970327/",
+    href: "https://www.linkedin.com/in/phan-thanh-t%C3%BA-203970327/",
     icon: Linkedin,
   },
   { label: "Email", href: "mailto:mudotet@gmail.com", icon: Mail },
