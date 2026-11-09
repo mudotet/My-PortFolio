@@ -667,14 +667,11 @@
     box-shadow: var(--shadow-neo-lg);
   }
 
-  .project-visual {
-    border-bottom: 4px solid var(--neo-ink);
-    background-color: var(--neo-yellow);
-    background-image: radial-gradient(var(--neo-ink) 1.5px, transparent 1.5px);
-    background-size: 18px 18px;
+  .project-card-heading {
+    background: var(--neo-yellow);
   }
 
-  .project-card-featured .project-visual {
+  .project-card-featured .project-card-heading {
     background-color: var(--neo-violet);
     background-image:
       linear-gradient(to right, rgb(var(--neo-ink-rgb) / 0.18) 2px, transparent 2px),
@@ -682,24 +679,32 @@
     background-size: 28px 28px;
   }
 
-  .flow-line {
-    position: relative;
-    height: 4px;
-    background: var(--neo-ink);
+  .project-link {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 4px;
   }
 
-  .flow-line::after {
-    content: "";
-    position: absolute;
-    top: -5px;
-    right: -1px;
-    border-block: 7px solid transparent;
-    border-left: 10px solid var(--neo-ink);
+  .project-details summary {
+    list-style: none;
   }
 
-  .project-motion-shell:hover .flow-node {
-    transform: rotate(-2deg) translateY(-2px);
-    background: var(--neo-red);
+  .project-details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .project-details summary:hover,
+  .project-details summary:focus-visible {
+    background: var(--neo-yellow);
+  }
+
+  .project-details[open] .project-details-chevron {
+    transform: rotate(180deg);
   }
 
   .neo-input {

@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Generated deliverable; the installed website PDF and PNG remain tracked.
+output/pdf/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

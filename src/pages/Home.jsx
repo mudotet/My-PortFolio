@@ -19,6 +19,7 @@ const resumePreview = {
   title: "Phan Thanh Tu · Software Engineer",
   file: resumeFile,
   image: resumePreviewImage,
+  downloadName: "Phan_Thanh_Tu_Software_Engineer_CV.pdf",
   aspectRatio: 0.773,
 };
 

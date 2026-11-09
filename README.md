@@ -22,6 +22,25 @@ I'm Tú Phan, a Software Engineer with a passion for building modern, efficient,
 - **Frontend:** [React](https://reactjs.org/), [Tailwind CSS](https://tailwindcss.com/)
 - **Hosting:** [Vercel](https://vercel.com/)
 
+## Updating the resume
+
+The editable content lives in `scripts/build_resume.py`. Build with Python 3.9+:
+
+```sh
+python3 -m venv /tmp/portfolio-resume-venv
+/tmp/portfolio-resume-venv/bin/pip install -r scripts/requirements-resume.txt
+/tmp/portfolio-resume-venv/bin/python scripts/build_resume.py
+```
+
+The script creates a one-page PDF under `output/pdf/`, updates the website PDF
+and its exact PNG preview in `src/assets/resume/`, and refreshes the legacy
+public download URL. It checks page count, required GearGames content, and text
+bounds. Visually inspect the generated preview before shipping.
+
+It uses macOS's Times New Roman fonts. On another system, set `RESUME_FONT_DIR`
+to a directory containing the regular, bold, italic, and bold italic TTF files
+named as in the script.
+
 ## 📬 Contact
 
 Feel free to reach out via the contact form on the website or connect with me on [LinkedIn](https://www.linkedin.com/) (update with your link).

@@ -10,6 +10,21 @@ import {
 
 const experiences = [
   {
+    period: "Aug 2026 - Nov 2026",
+    organization: "GearGames",
+    role: "Server Engineer Intern",
+    signal: "Game backend",
+    icon: BriefcaseBusiness,
+    summary:
+      "Contributed to game-server features while learning the company's server codebase and existing player-data workflows.",
+    contributions: [
+      "Worked on resource initialization and login flows, tracing request handling and player-state updates through the existing codebase.",
+      "Implemented static and daily shop purchase flows using in-game gems.",
+      "Implemented Battle Pass mission progression toward reward milestones, with Free and Premium reward tracks.",
+    ],
+    stack: ["Java", "Akka", "Protocol Buffers", "DynamoDB", "Redisson"],
+  },
+  {
     period: "July 2026",
     organization: "AI Innovation Challenge · LonelyStone",
     role: "Team Leader · Full-stack Developer",

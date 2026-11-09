@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { X } from "lucide-react";
+import { Download, X } from "lucide-react";
 import { getPreviewDialogSize } from "../lib/preview-size";
 
 export const PdfDialog = ({ preview, onClose }) => {
@@ -65,19 +65,32 @@ export const PdfDialog = ({ preview, onClose }) => {
                 {preview.title}
               </h3>
             </div>
-            <button
-              type="button"
-              className="neo-icon-button bg-primary"
-              aria-label="Close document preview"
-              onClick={() => dialogRef.current?.close()}
-            >
-              <X className="h-5 w-5 stroke-[3]" />
-            </button>
+            <div className="flex shrink-0 items-center gap-2">
+              {preview.downloadName && (
+                <a
+                  href={preview.file}
+                  download={preview.downloadName}
+                  className="neo-icon-button bg-card"
+                  aria-label="Download resume PDF"
+                  title="Download resume PDF"
+                >
+                  <Download className="h-5 w-5 stroke-[3]" aria-hidden="true" />
+                </a>
+              )}
+              <button
+                type="button"
+                className="neo-icon-button bg-primary"
+                aria-label="Close document preview"
+                onClick={() => dialogRef.current?.close()}
+              >
+                <X className="h-5 w-5 stroke-[3]" />
+              </button>
+            </div>
           </header>
           {preview.image ? (
             <img
               src={preview.image}
-              alt={`${preview.title} certificate`}
+              alt={preview.downloadName ? `${preview.title} resume` : `${preview.title} certificate`}
               className="resume-preview"
             />
           ) : (

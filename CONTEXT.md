@@ -32,8 +32,8 @@ The welcome sequence is the cinematic moment; subsequent motion is interaction-l
 _Avoid_: Other continuous animation after entry
 
 **Project card behavior**:
-Project cards keep their problem, approach, and impact content visible for fast recruiter scanning; interaction emphasizes the existing system-flow row.
-_Avoid_: Click-through detail views or hidden case-study content
+Project cards show a short summary, one highlight, key technologies, and direct links for fast recruiter scanning. Native inline disclosures reveal the full problem, approach, impact, and system flow; only one case study opens at a time.
+_Avoid_: Full-length case studies expanded by default, separate detail pages, JavaScript-only disclosure controls
 
 **Upgrade scope**:
 The performance and motion upgrade preserves the portfolio's current sections and copy, focusing on their delivery rather than a content rewrite.
@@ -59,8 +59,11 @@ The portfolio presents Hero, About and Credentials, Projects, Experience, Skills
 _Avoid_: Projects before credentials, biography-first sequencing
 
 **Flagship case file**:
-GuideLens AI is the full-width project centerpiece; the other three projects are equal supporting dossiers.
-_Avoid_: Four equally weighted projects, HUMG Regulation AI or Identity Services as the visual flagship
+GuideLens AI is a compact featured card spanning two columns. All eight projects share a compact grid: three columns on wide screens, two on tablets, and one on mobile. Detailed case studies open inline on demand.
+_Avoid_: Tall decorative panels, full-width project diagrams above every card
+
+**Project evidence**:
+Describe learning projects at their demonstrated scope, without invented usage or performance metrics. Auto Offices and Personal Blog are live websites; the blog URL is `https://www.tusblog.site/`. Research notes live in `docs/project-sources.md`.
 
 **Portrait treatment**:
 The existing portrait remains recognizable and full-color inside a rotated identity-card frame; halftone texture belongs to the surrounding panel rather than the face.
